@@ -13,9 +13,10 @@
 <!-- <label for="id" id="id">ID: {{doc.uuid}}</label> -->
 
   <div class="form-group">
-    <label for="description">Description</label>
-    <textarea value="{{doc.description}}" type="text" class="form-control" rows="5" name="description" id="description" placeholder="{{doc.description}}" onkeyup="{function () {textarea.style.height = textarea.clientHeight + 'px';}}"></textarea>
+    <label for="title">Description</label>
+    <input value="{{doc.description}}" type="text" class="form-control" rows="5" name="description" id="description" placeholder="Enter a description" required>
   </div>
+
 
   <div class="form-group">
     <label for="priority" id="priority">Select Priority:</label>

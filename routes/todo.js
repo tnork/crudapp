@@ -85,7 +85,7 @@ router.post('/update/:id', (req, res, next) => {
       uuid: id
   }, {
     title: req.body.title == '' ? lookupTitle(id) : req.body.title,
-    description: req.body.description,
+    description: req.body.description === '' || req.body.description === null || req.body.description === undefined ? lookupDescription(id) : req.body.description,
     priority: req.body.priority,
     done: false,
     date: todaysDate(),
@@ -149,7 +149,7 @@ function lookupDescription(id) {
 function lookupTitle(id) {
   mongoose.model('Todos').findOne({uuid: id}, (err, doc) => {
       if (err) return handleError(err);
-      if (doc.description != '') {
+      if (doc.title != '') {
           return doc.title
       } else {
         return 'Add a Title';
@@ -158,32 +158,19 @@ function lookupTitle(id) {
 }
 
 function displayTime() {
-  var str = "";
-
-  var currentTime = new Date()
-  var hours = currentTime.getHours()
-  var minutes = currentTime.getMinutes()
-  var seconds = currentTime.getSeconds()
-
-  if (minutes < 10) {
-      minutes = "0" + minutes
-  }
-  if (seconds < 10) {
-      seconds = "0" + seconds
-  }
-  str += hours + ":" + minutes + ":" + seconds + " ";
-  if(hours > 11){
-    str += "PM"
-  } else {
-    str += "AM"
-  }
-    return str;
+  var currentDate = new Date().toLocaleTimeString('en-US', { hour12: true,
+                                             hour: "numeric",
+                                             minute: "numeric"});
+  return currentDate;
 }
 
 function todaysDate(){
-  var d = new Date();
-  var todayDay = (d.getMonth()+1) + '-' + d.getDate() + '-' + d.getFullYear();
-  return todayDay;
+  var today = new Date().toLocaleDateString(undefined, {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+  });
+  return today;
 }
 
 module.exports = router;
