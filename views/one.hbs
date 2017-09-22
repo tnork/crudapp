@@ -1,0 +1,39 @@
+<br/>
+<a href="/todos"><img height="200px" src="https://vetstreet-brightspot.s3.amazonaws.com/39/f3549012f211e28836005056ad4734/file/Adorable-mini-pig-Alamy-A6B0M5-335lc101012.jpg" alt="Mini Pig" /></a>
+<br/><br/>
+<h1 style="font-family: Lobster;">{{title}}</h1>
+<br/>
+
+<a href="/todos/edit/{{doc.uuid}}"><button type="button" class="btn btn-info btn-lg">
+  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit This Todo
+</button></a>
+
+<br/><br/><br/>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+  <a href="/todos/edit/{{doc.uuid}}" class="left list-group-item active justify-content-between">
+    {{doc.title}} <span class="badge badge-info badge-pill">Priority: {{doc.priority}}</span>
+  </a>
+</div>
+  <a href="/todos/edit/{{doc.uuid}}">
+    <a class="list-group-item">Description: {{doc.description}}</a>
+    <a class="list-group-item">Completed : {{doc.done}}</a>
+    <a class="list-group-item">Date: {{doc.date}}</a>
+    <a class="list-group-item">Time: {{doc.time}}</a>
+
+    {{#if doc.inProgress}}
+        <a class="list-group-item list-group-item-success">In Progress</a>
+    {{else}}
+        <a class="list-group-item list-group-item-warning">Not In Progress</a>
+    {{/if}}
+</div>
+
+<br/>
+
+<div class="w3-container">
+  <a href="/todos/new"><button type="button" name="button" class="w3-button w3-large w3-circle w3-red w3-card-4">+</button></a>
+  &nbsp; &nbsp;
+  <a href="/todos/delete/{{doc.uuid}}"> <button class="w3-button w3-large w3-circle w3-teal">–</button></a>
+</div>
+<br/><br/><br/>

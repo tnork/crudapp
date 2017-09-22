@@ -1,0 +1,48 @@
+<br/>
+<a href="/todos"><img height="200px" src="https://i.pinimg.com/736x/8c/48/50/8c48500c2380b77029d8c2dbccc12a87--cute-guinea-pigs-teddy-guinea-pig.jpg" alt="Guinea Pig" /></a>
+<br/><br/>
+<h1 style="font-family: Lobster;">{{title}}</h1>
+<br/>
+
+<form class="form" action="/todos/update/{{doc.uuid}}" method="post">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input value="{{doc.title}}" type="text" class="form-control" name="title" id="title" placeholder="Enter a todo" required>
+  </div>
+
+<!-- <label for="id" id="id">ID: {{doc.uuid}}</label> -->
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea value="{{doc.description}}" type="text" class="form-control" rows="5" name="description" id="description" placeholder="{{doc.description}}" onkeyup="{function () {textarea.style.height = textarea.clientHeight + 'px';}}"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="priority" id="priority">Select Priority:</label>
+    <select class="form-control" id="priority" name="priority">
+      {{#select doc.priority}}
+      <option value="1" id="1" key="1">Priority 1</option>
+      <option value="2" id="2" key="2">Priority 2</option>
+      <option value="3" id="3" key="3">Priority 3</option>
+      <option value="4" id="4" key="4">Priority 4</option>
+      <option value="5" id="5" key="5">Priority 5</option>
+      {{/select}}
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="inProgress" id="inProgress">In Progress:</label>
+    <select class="form-control" id="inProgress" name="inProgress">
+      {{#select doc.inProgress}}
+      <option value="false" id="notinProgress" key="false">Not In Progress</option>
+      <option value="true" id="inProgress" key="true">In Progress</option>
+      {{/select}}
+    </select>
+  </div>
+
+<br/>
+
+<button type="submit" name="button" class="btn btn-danger btn-lg">
+<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Save Your Edit!
+</button></a>
+<br/><br/><br/>

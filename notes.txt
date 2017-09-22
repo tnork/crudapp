@@ -1,0 +1,21 @@
+## CRUD App
+## Tools:
+
+* Node, because what's not to love?
+* Express for routes and rendering
+* Mongoose ODM w/ mLab Cloud MongoDB
+* Handlebars for server-side view templates
+* Bootstrap for UI
+
+## Full Stack Checklist:
+* [X]  Generate Express app
+* [X]  Create database and table
+* [X]  Seed table with sample data
+* [X]  List all records with GET /todos
+* [X]  Add Bootstrap
+* [X]  Show new form with todos/new
+* [X]  Create a record with POST /todoIdShow one record with GET /todo/:id
+* [X]  Show an edit form with GET /todo/:id/edit
+* [X]  Update a record
+* [X]  Delete a record
+* [X]  Redirect on create, update, and delete
