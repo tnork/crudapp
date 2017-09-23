@@ -1,11 +1,14 @@
-<br/>
-<a href="/todos"><img height="200px" src="https://vetstreet-brightspot.s3.amazonaws.com/39/f3549012f211e28836005056ad4734/file/Adorable-mini-pig-Alamy-A6B0M5-335lc101012.jpg" alt="Mini Pig" /></a>
-<br/><br/>
-<h1 style="font-family: Lobster;">{{title}}</h1>
-<br/>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header">
+      <a href="/todos"><button type="button" class="btn btn-default navbar-btn pull-left">
+        <span class="glyphicon glyphicon-chevron-left remove"></span>
+      </button></a>
+      <h1 class="nowrap" style="font-family: Lobster; color: red;"> &nbsp; {{title}}</h1>
+    </div>
+</nav><br/><br/>
 
 <a href="/todos/edit/{{doc.uuid}}"><button type="button" class="btn btn-info btn-lg">
-  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit This Todo
+  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>  &nbsp; Edit This Todo
 </button></a>
 
 <br/><br/><br/>

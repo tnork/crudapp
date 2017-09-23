@@ -3,36 +3,65 @@ a {
 }
 
 body {
-  padding: 20px;
-  padding-top: 50px;
-  padding-bottom: 20px;
   font: "Oswald", "Lucida Grande", Helvetica, Arial, sans-serif;
   vertical-align: middle;
   text-align: center;
-}
+  }
 
 button {
   margin:auto;
   display:inline-flex;
-  text-align: left; !important
+  text-align: left;
   align-items: left;
+  padding-left: 1px;
 }
 
-h1 {
-  margin-top: 20px;
+.jumbocontainer {
+  margin-top: -10px !important;
 }
 
 .left {
-  text-align: left;
+  text-align: left !important;
+}
+
+.remove {
+  margin-left: 0px !important;
+  padding: 0px !important;
+  text-align: center !important;
 }
 
 span, .badge {
   margin-left: 5px;
-  padding: 10px;
   text-align: left; !important
+}
 
+.special {
+  vertical-align: middle !important;
+  text-align: center !important;
+  padding-left: 15px !important;
 }
 
 textarea {
   resize: both;
+}
+
+.navbar-brand-centered {
+    position: absolute;
+    left: 50%;
+    display: block;
+    text-align: center;
+    vertical-align: middle !important;
+    background-color: transparent;
+}
+
+nav {
+  margin-bottom: 0px !important;
+}
+
+nav h1 {
+  padding-top: 5px !important;
+}
+
+.nowrap {
+  white-space: nowrap ;
 }

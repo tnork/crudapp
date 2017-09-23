@@ -1,8 +1,11 @@
-<br/>
-<a href="/todos"><img height="200px" src="https://i.pinimg.com/736x/8c/48/50/8c48500c2380b77029d8c2dbccc12a87--cute-guinea-pigs-teddy-guinea-pig.jpg" alt="Guinea Pig" /></a>
-<br/><br/>
-<h1 style="font-family: Lobster;">{{title}}</h1>
-<br/>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header">
+      <a href="/todos"><button type="button" class="btn btn-default navbar-btn pull-left">
+        <span class="glyphicon glyphicon-chevron-left remove"></span>
+      </button></a>
+      <h1 class="nowrap" style="font-family: Lobster; color: red;"> &nbsp; {{title}}</h1>
+    </div>
+</nav><br/><br/>
 
 <form class="form" action="/todos/update/{{doc.uuid}}" method="post">
   <div class="form-group">
@@ -44,6 +47,6 @@
 <br/>
 
 <button type="submit" name="button" class="btn btn-danger btn-lg">
-<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Save Your Edit!
+<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>  &nbsp; Save Your Edit!
 </button></a>
 <br/><br/><br/>

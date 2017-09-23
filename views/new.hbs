@@ -1,8 +1,11 @@
-<br/>
-<a href="/todos"><img height="200px" src="http://www.fubiz.net/wp-content/uploads/2014/06/booboo-1.jpg" alt="Studious Pig" /></a>
-<br/><br/>
-<h1 style="font-family: Lobster;">{{title}}</h1>
-<br/>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header">
+      <a href="/todos"><button type="button" class="btn btn-default navbar-btn pull-left">
+        <span class="glyphicon glyphicon-chevron-left remove"></span>
+      </button></a>
+      <h1 class="nowrap" style="font-family: Lobster; color: red;"> &nbsp; {{title}}</h1>
+    </div>
+</nav><br/><br/>
 
 <form class="form" action="/todos" method="post">
   <div class="form-group">
@@ -38,7 +41,7 @@
 
 <br/>
 <button type="submit" name="button" class="btn btn-danger btn-lg">
-<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Save Your Todo!
+<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>  &nbsp; Save Your Todo!
 </button></a>
 
 <br/><br/><br/>
