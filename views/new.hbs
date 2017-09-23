@@ -9,18 +9,18 @@
 
 <form class="form" action="/todos" method="post">
   <div class="form-group">
-    <label for="title">Title</label>
-    <input type="text" class="form-control" name="title" id="title" value="" placeholder="Enter a todo" required>
+    <label for="title" class="edit-default">Title</label>
+    <input type="text" maxlength="44" class="form-control" name="title" id="title" value="" placeholder="Enter a todo" required>
   </div>
 
   <div class="form-group">
-    <label for="description">Description</label>
-    <textarea type="text" class="form-control" rows="5" name="description" id="description" value="" placeholder="Enter a description (optional)" onkeyup="{function () {textarea.style.height = textarea.clientHeight + 'px';}}"></textarea>
+    <label for="description" class="edit-default">Description</label>
+    <textarea type="text" class="form-control edit-default rows="5" name="description" id="description" value="" placeholder="Enter a description (optional)" onkeyup="{function () {textarea.style.height = textarea.clientHeight + 'px';}}"></textarea>
   </div>
 
   <div class="form-group">
-    <label for="priority" id="priority">Select Priority:</label>
-    <select class="form-control" id="priority" name="priority">
+    <label for="priority" id="priority" class="edit-default">Select Priority:</label>
+    <select class="form-control edit-default" id="priority" name="priority">
       <option value="1" id="1" key="1"> 1 </option>
       <option value="2" id="2" key="2"> 2 </option>
       <option value="3" id="3" key="3"> 3 </option>
@@ -30,18 +30,18 @@
   </div>
 
   <div class="form-group">
-    <label for="inProgress" id="inProgress">In Progress:</label>
-    <select class="form-control" id="inProgress" name="inProgress">
+    <label for="inProgress" id="inProgress" class="edit-default">In Progress:</label>
+    <select class="form-control edit-default" id="inProgress" name="inProgress">
       {{#select doc.inProgress}}
-      <option value="false" id="notinProgress" key="false">Not In Progress</option>
-      <option value="true" id="inProgress" key="true">In Progress</option>
+      <option value="false" id="notinProgress" key="false" class="edit-default">Not In Progress</option>
+      <option value="true" id="inProgress" key="true" class="edit-default">In Progress</option>
       {{/select}}
     </select>
   </div>
 
 <br/>
 <button type="submit" name="button" class="btn btn-danger btn-lg">
-<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>  &nbsp; Save Your Todo!
+<span class="glyphicon glyphicon-floppy-disk edit-default" aria-hidden="true"></span>  &nbsp; Save Your Todo!
 </button></a>
 
 <br/><br/><br/>
