@@ -24,6 +24,14 @@ button {
   text-align: left !important;
 }
 
+.index-content {
+  font-size: 13px;
+}
+
+.index-title {
+  font-size: 22px;
+}
+
 .remove {
   margin-left: 0px !important;
   padding: 0px !important;
