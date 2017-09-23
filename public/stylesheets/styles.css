@@ -1,3 +1,8 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
 a {
   color: #00B7FF;
 }
@@ -24,6 +29,37 @@ button {
   font-size: 12px;
 }
 
+.hero-div{
+  margin-top: -22px;
+  width: 100%;
+}
+
+.hero-div figure{
+  padding-top: 36.56%;  /* 702px/1920px = 0.3656 */
+  display: block;
+  background: url("../images/Enterprise.jpg") no-repeat center top;
+  border-radius: 0px;
+  background-size: cover;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-div button {
+  padding: 15px 50px;
+  border: 0;
+  background: #b20000;
+  color: #fff;
+  cursor: pointer;
+  position: absolute; top: 50%; left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+.hero-div button:hover{
+  background: #c00;
+}
 
 .jumbo-button-wrapper {
   width:100%;
@@ -66,25 +102,16 @@ button {
   font-size: 13px;
 }
 
-.remove {
-  margin-left: 0px !important;
-  padding: 0px !important;
-  text-align: center !important;
+nav {
+  margin-bottom: 0px !important;
 }
 
-span, .badge {
-  margin-left: 5px;
-  text-align: left; !important
+nav a {
+  align-items: left;
 }
 
-.special {
-  vertical-align: middle !important;
-  text-align: center !important;
-  padding-left: 15px !important;
-}
-
-textarea {
-  resize: both;
+nav h1 {
+  padding-top: 5px !important;
 }
 
 .navbar-brand-centered {
@@ -96,59 +123,35 @@ textarea {
     background-color: transparent;
 }
 
-nav {
-  margin-bottom: 0px !important;
-}
-
-nav h1 {
-  padding-top: 5px !important;
+.no-radius {
+  border-radius: 0px !important;
 }
 
 .nowrap {
   white-space: nowrap ;
 }
 
-*{
-  padding: 0;
-  margin: 0;
+.remove {
+  margin-left: 0px !important;
+  padding: 0px !important;
+  text-align: left !important;
 }
 
-.hero-div{
-  margin-top: -22px;
-  width: 100%;
+span, .badge {
+  margin-left: 5px;
+  text-align: left !important;
 }
 
-.hero-div figure{
-  padding-top: 36.56%;  /* 702px/1920px = 0.3656 */
-  display: block;
-  background: url("../images/Enterprise.jpg") no-repeat center top;
-  border-radius: 0px;
-  background-size: cover;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-div button {
-  padding: 15px 50px;
-  border: 0;
-  background: #b20000;
-  color: #fff;
-  cursor: pointer;
-  position: absolute; top: 50%; left: 50%;
-  -webkit-transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-}
-
-.hero-div button:hover{
-  background: #c00;
-}
-
-.no-radius {
-  border-radius: 0px !important;
+.special {
+  vertical-align: middle !important;
+  text-align: center !important;
+  padding-left: 15px !important;
 }
 
 .super-red {
   color: #fff !important;
+}
+
+textarea {
+  resize: both;
 }

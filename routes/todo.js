@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
 router.get('/compressedtodos', (req, res) => {
   mongoose.model('Todos').find(function(err, todos) {
     if(!err){
-    res.render('compressedtodos', {title: "Todo Quick View :", todos: todos.reverse(), timing: displayTime(), date: todaysDate()});
+    res.render('compressedtodos', {title: "Quick View :", todos: todos.reverse(), timing: displayTime(), date: todaysDate()});
   } else {
     res.send(err);
   }
