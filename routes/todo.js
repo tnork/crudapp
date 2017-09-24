@@ -1,12 +1,10 @@
 const express = require('express');
 const router = express.Router();
-var url = require('url');
+const url = require('url');
 const methodOverride = require('method-override');
 const dateFormat = require('dateformat');
-
 const uuid = require('uuid');
 const uuidv4 = require('uuid/v4');
-
 const mongoose = require('mongoose')
   , Schema = mongoose.Schema, ObjectId = Schema.ObjectId;
 const todos = require('../models/todos');
@@ -158,19 +156,39 @@ function lookupTitle(id) {
 }
 
 function displayTime() {
-  var currentDate = new Date().toLocaleTimeString('en-US', { hour12: true,
-                                             hour: "numeric",
-                                             minute: "numeric"});
-  return currentDate;
+  var options = { timeZone: 'PST', timeZoneName: 'short', hour12: true };
+  var nowTime = new Date().toLocaleTimeString(options);
+  return nowTime;
 }
 
-function todaysDate(){
-  var today = new Date().toLocaleDateString(undefined, {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric'
-  });
-  return today;
+function todaysDate() {
+  var date = new Date();
+  var format = "YYYY-MMM-DD DDD";
+  return dateConvert(date,format);
+}
+
+function dateConvert(dateobj,format){
+  var year = dateobj.getFullYear();
+  var month= ("0" + (dateobj.getMonth()+1)).slice(-2);
+  var date = ("0" + dateobj.getDate()).slice(-2);
+  var hours = ("0" + dateobj.getHours()).slice(-2);
+  var minutes = ("0" + dateobj.getMinutes()).slice(-2);
+  var seconds = ("0" + dateobj.getSeconds()).slice(-2);
+  var day = dateobj.getDay();
+  var months = ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"];
+  var dates = ["SUN","MON","TUE","WED","THU","FRI","SAT"];
+  var converted_date = "";
+
+  switch(format){
+    case "YYYY-MM-DD":
+      converted_date = year + "-" + month + "-" + date;
+      break;
+    case "YYYY-MMM-DD DDD":
+      converted_date = year + "-" + months[parseInt(month)-1] + "-" + date + " " + dates[parseInt(day)];
+      break;
+  }
+
+  return converted_date;
 }
 
 module.exports = router;

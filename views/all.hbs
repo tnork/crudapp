@@ -29,16 +29,16 @@
 </div>
 
   <div style="text-align:center;" class="panel-body">
-    <a class="list-group-item">Description: {{description}}</a>
+    <a class="list-group-item" href="/todos/{{uuid}}">Description: {{description}}</a>
     <!-- <a class="list-group-item">Completed : {{done}}</a> -->
-    <a class="list-group-item">Date: {{date}}</a>
-    <a class="list-group-item">Time: {{time}}</a>
+    <a class="list-group-item" href="/todos/{{uuid}}">Date: {{date}}</a>
+    <a class="list-group-item" href="/todos/{{uuid}}">Time: {{time}} PST</a>
   </a>
 
   {{#if inProgress}}
-      <a class="list-group-item list-group-item-success">In Progress</a>
+      <a class="list-group-item list-group-item-success" href="/todos/{{uuid}}">In Progress</a>
   {{else}}
-      <a class="list-group-item list-group-item-warning">Not In Progress</a>
+      <a class="list-group-item list-group-item-warning" href="/todos/{{uuid}}">Not In Progress</a>
   {{/if}}
   </div>
 </div>

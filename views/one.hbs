@@ -20,15 +20,15 @@
   </a>
 </div>
   <a href="/todos/edit/{{doc.uuid}}">
-    <a class="list-group-item">Description: {{doc.description}}</a>
+    <a class="list-group-item" href="/todos/edit/{{doc.uuid}}">Description: {{doc.description}}</a>
     <!-- <a class="list-group-item">Completed : {{doc.done}}</a> -->
-    <a class="list-group-item">Date: {{doc.date}}</a>
-    <a class="list-group-item">Time: {{doc.time}}</a>
+    <a class="list-group-item" href="/todos/edit/{{doc.uuid}}">Date: {{doc.date}}</a>
+    <a class="list-group-item" href="/todos/edit/{{doc.uuid}}">Time: {{doc.time}} PST</a>
 
     {{#if doc.inProgress}}
-        <a class="list-group-item list-group-item-success">In Progress</a>
+        <a class="list-group-item list-group-item-success" href="/todos/edit/{{doc.uuid}}">In Progress</a>
     {{else}}
-        <a class="list-group-item list-group-item-warning">Not In Progress</a>
+        <a class="list-group-item list-group-item-warning" href="/todos/edit/{{doc.uuid}}">Not In Progress</a>
     {{/if}}
 </div>
 

@@ -7,6 +7,13 @@ a {
   color: #00B7FF;
 }
 
+.badge-pill {
+  margin-top: 1px !important;
+  margin-left: 3px !important;
+  color: red !important;
+  padding: 4px !important;
+}
+
 body {
   font: "Oswald", "Lucida Grande", Helvetica, Arial, sans-serif;
   vertical-align: middle;
@@ -19,6 +26,7 @@ button {
   text-align: left;
   align-items: left;
   padding-left: 1px;
+  margin-bottom: 5px !important;
 }
 
 .edit-default {
@@ -90,6 +98,10 @@ button {
 
 .index-title {
   font-size: 22px;
+}
+
+input, textarea {
+  font-size: 13px;
 }
 
 .img-main {

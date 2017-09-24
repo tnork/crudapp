@@ -10,18 +10,18 @@
 <form class="form" action="/todos/update/{{doc.uuid}}" method="post">
   <div class="form-group">
     <label for="title" class="edit-default">Title:</label>
-    <input value="{{doc.title}}" maxlength="44" type="text" class="form-control" name="title" id="title" placeholder="Enter a todo" required>
+    <input value="{{doc.title}}" style="font-size:13px;" maxlength="44" type="text" class="form-control" name="title" id="title" placeholder="Enter a todo" required>
   </div>
 
   <div class="form-group">
     <label for="description" class="edit-default">Description:</label>
-    <textarea type="text" class="form-control edit-default rows="5" name="description" id="description" value="" placeholder="Enter a description (optional)" onkeyup="{function () {textarea.style.height = textarea.clientHeight + 'px';}}"></textarea>
+    <textarea type="text" style="font-size:13px;" class="form-control edit-default" rows="5" name="description" id="description" value="" placeholder="Enter a description (optional)" onkeyup="{function () {textarea.style.height = textarea.clientHeight + 'px';}}"></textarea>
   </div>
 
 
   <div class="form-group">
     <label for="priority" id="priority" class="edit-default">Select Priority:</label>
-    <select class="form-control edit-default" id="priority" name="priority">
+    <select class="form-control edit-default" rows="2" id="priority" name="priority">
       {{#select doc.priority}}
       <option value="1" id="1" key="1">Priority 1</option>
       <option value="2" id="2" key="2">Priority 2</option>
@@ -34,7 +34,7 @@
 
   <div class="form-group">
     <label for="inProgress" id="inProgress" class="edit-default">In Progress:</label>
-    <select class="form-control edit-default" id="inProgress" name="inProgress">
+    <select class="form-control edit-default" rows="2" id="inProgress" name="inProgress">
       {{#select doc.inProgress}}
       <option value="false" id="notinProgress" key="false">Not In Progress</option>
       <option value="true" id="inProgress" key="true">In Progress</option>
