@@ -3,6 +3,8 @@
   margin: 0;
 }
 
+@media (max-width: 645px) { }
+
 a {
   color: #00B7FF;
 }

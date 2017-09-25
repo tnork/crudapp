@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-fixed-top" style="min-width:447px;">
     <div class="navbar-header">
       <a href="/todos"><button type="button" class="btn btn-default navbar-btn pull-left">
         <span class="glyphicon glyphicon-chevron-left remove"></span>
@@ -7,16 +7,18 @@
     </div>
 </nav><br/><br/>
 
-<a href="/todos/edit/{{doc.uuid}}"><button type="button" class="btn btn-info btn-lg">
-  <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>  &nbsp; Edit This Todo
-</button></a>
+<div class="img-responsive" style="min-width:447px;">
+  <a href="/todos/edit/{{doc.uuid}}"><button type="button" class="btn btn-info btn-lg">
+    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>  &nbsp; Edit This Todo
+  </button></a>
 
 <br/><br/><br/>
 
+<div class="img-responsive" style="min-width:460px;">
 <div class="panel panel-default">
   <div class="panel-heading">
-  <a href="/todos/edit/{{doc.uuid}}" class="left list-group-item active justify-content-between">
-    Todo: {{doc.title}} <span class="badge badge-info badge-pill">Priority: {{doc.priority}}</span>
+  <a href="/todos/{{uuid}}" class="left list-group-item active justify-content-between">
+  &nbsp; Title: &nbsp;  {{doc.title}} <span class="label label-warning" style="float:right;margin-top:3px; padding: 3px; padding-bottom: 4px;">Priority: {{doc.priority}}</span>
   </a>
 </div>
   <a href="/todos/edit/{{doc.uuid}}">
@@ -30,11 +32,12 @@
     {{else}}
         <a class="list-group-item list-group-item-warning" href="/todos/edit/{{doc.uuid}}">Not In Progress</a>
     {{/if}}
-</div>
 
+  </div></div>
+</div></div>
 <br/>
 
-<div class="w3-container">
+<div class="w3-container" style="min-width:447px;">
   <a href="/todos/new"><button type="button" name="button" class="w3-button w3-large w3-circle w3-red w3-card-4">+</button></a>
   &nbsp; &nbsp;
   <a href="/todos/delete/{{doc.uuid}}"> <button class="w3-button w3-large w3-circle w3-teal">–</button></a>
