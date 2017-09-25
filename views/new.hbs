@@ -1,5 +1,4 @@
-<div class="img-responsive" style="min-width:300px;">
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-fixed-top" style="min-width:200px;">
     <div class="navbar-header">
       <a href="/todos"><button type="button" class="btn btn-default navbar-btn pull-left">
         <span class="glyphicon glyphicon-chevron-left remove"></span>
@@ -11,12 +10,12 @@
 <form class="form" action="/todos" method="post">
   <div class="form-group">
     <label for="title" class="edit-default">Title:</label>
-    <input type="text" maxlength="44" class="form-control" style="font-size:13px;" name="title" id="title" value="" placeholder="Enter a todo" required>
+    <input type="text" maxlength="44" class="form-control"  style="font-size:13px;" name="title" id="title" value="" placeholder="Enter a todo" required>
   </div>
 
   <div class="form-group">
     <label for="description" class="edit-default">Description:</label>
-    <textarea type="text" class="form-control edit-default" style="font-size:13px;"  rows="5" name="description" id="description" value="" placeholder="Enter a description (optional)" onkeyup="{function () {textarea.style.height = textarea.clientHeight + 'px';}}"></textarea>
+    <textarea type="text" class="form-control edit-default" style="font-size:13px;" rows="5" name="description" id="description" value="" placeholder="Enter a description (optional)" onkeyup="{function () {textarea.style.height = textarea.clientHeight + 'px';}}"></textarea>
   </div>
 
   <div class="form-group">
@@ -46,5 +45,5 @@
 </button></a>
 
 <br/><br/><br/>
-</div>
+
 </form>

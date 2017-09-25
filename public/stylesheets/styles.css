@@ -112,6 +112,15 @@ input, textarea {
   height: 35% !important;
 }
 
+.panel a {
+  text-decoration: none !important;
+  color: black;
+}
+
+.panel a:hover {
+  color: #fefdfb !important;
+}
+
 .panel-default {
   font-size: 13px;
 }

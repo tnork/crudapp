@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" style="min-width:447px;">
+<nav class="navbar navbar-inverse navbar-fixed-top" style="min-width:200px;">
     <div class="navbar-header">
       <a href="/"><button type="button" class="btn btn-default navbar-btn pull-left">
         <span class="glyphicon glyphicon-chevron-left remove"></span>
@@ -7,7 +7,6 @@
     </div>
 </nav><br/><br/>
 
-<div class="img-responsive" style="min-width:447px;">
   <a href="/todos/compressedtodos"><button type="button" class="btn btn-danger btn-lg">
     <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> &nbsp; Compact View
   </button></a>
@@ -23,7 +22,6 @@
 
 {{#each todos}}
 
-<div class="img-responsive" style="min-width:460px;">
 <div class="panel panel-default">
   <div class="panel-heading">
   <a href="/todos/{{uuid}}" class="left list-group-item active justify-content-between">
@@ -46,13 +44,13 @@
   {{/if}}
 
   </div>
-</div></div>
+</div>
 
 {{/each}}
 
 <br/>
 
-<div class="w3-container" style="min-width:447px;">
+<div class="w3-container">
   <a href="/todos/new"><button type="button spacial" name="button" class="w3-button w3-large w3-circle w3-red w3-card-4">+</button></a>
 </div>
 
