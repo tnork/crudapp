@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" style="min-width:200px;">
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-header">
       <a href="/"><button type="button" class="btn btn-default navbar-btn pull-left">
         <span class="glyphicon glyphicon-chevron-left remove"></span>
@@ -22,14 +22,15 @@
 
 {{#each todos}}
 
-<div class="panel panel-default">
+<div class="panel panel-default table-responsive">
   <div class="panel-heading">
-  <a href="/todos/{{uuid}}" class="left list-group-item active justify-content-between">
-  &nbsp; Title: &nbsp;  {{title}} <span class="label label-warning" style="float:right;margin-top:3px; padding: 3px; padding-bottom: 4px;">Priority: {{priority}}</span>
+  <a href="/todos/{{uuid}}" class="left list-group-item active">
+  &nbsp; Title: &nbsp;  {{title}}
   </a>
 </div>
 
   <div style="text-align:center;" class="panel-body">
+    <a class="list-group-item" href="/todos/{{uuid}}" style="background-color:#f9f9f9;"><span class="label label-danger">Priority: {{priority}}</span></a>
     <a class="list-group-item" href="/todos/{{uuid}}">Description: {{description}}</a>
     <!-- <a class="list-group-item">Completed : {{done}}</a> -->
     <a class="list-group-item" href="/todos/{{uuid}}">Date: {{date}}</a>

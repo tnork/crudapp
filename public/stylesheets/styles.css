@@ -20,6 +20,7 @@ body {
   font: "Oswald", "Lucida Grande", Helvetica, Arial, sans-serif;
   vertical-align: middle;
   text-align: center;
+  min-width: 200px;
   }
 
 button {
@@ -112,17 +113,16 @@ input, textarea {
   height: 35% !important;
 }
 
-.panel a {
-  text-decoration: none !important;
-  color: black;
-}
-
-.panel a:hover {
-  color: #fefdfb !important;
+.panel .hover-em {
+  color: #fff !important;
 }
 
 .panel-default {
   font-size: 13px;
+}
+
+.list-group-item:hover {
+  color: black !important;
 }
 
 nav {
@@ -154,10 +154,24 @@ nav h1 {
   white-space: nowrap ;
 }
 
+.panel-heading:hover {
+  color: white !important;
+  font-size: 15px;
+}
+
+.panel-heading a:hover {
+  color: white !important;
+  font-size: 15px;
+}
+
 .remove {
   margin-left: 0px !important;
   padding: 0px !important;
   text-align: left !important;
+}
+
+select {
+   padding: 4px !important;
 }
 
 span, .badge {

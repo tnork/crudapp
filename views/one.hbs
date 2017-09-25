@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" style="min-width:200px;">
+<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-header">
       <a href="/todos"><button type="button" class="btn btn-default navbar-btn pull-left">
         <span class="glyphicon glyphicon-chevron-left remove"></span>
@@ -14,13 +14,14 @@
 
 <br/><br/><br/>
 
-<div class="panel panel-default">
+<div class="panel panel-default table-responsive">
   <div class="panel-heading">
   <a href="/todos/edit/{{doc.uuid}}" class="left list-group-item active justify-content-between">
-  &nbsp; Title: &nbsp;  {{doc.title}} <span class="label label-warning" style="float:right;margin-top:3px; padding: 3px; padding-bottom: 4px;">Priority: {{doc.priority}}</span>
+  &nbsp; Title: &nbsp;  {{doc.title}}
   </a>
 </div>
   <a href="/todos/update/{{doc.uuid}}">
+    <a class="list-group-item" href="/todos/{{doc.uuid}}" style="background-color:#f9f9f9;"><span class="label label-danger">Priority: {{doc.priority}}</span></a>
     <a class="list-group-item" href="/todos/edit/{{doc.uuid}}">Description: {{doc.description}}</a>
     <!-- <a class="list-group-item">Completed : {{doc.done}}</a> -->
     <a class="list-group-item" href="/todos/edit/{{doc.uuid}}">Date: {{doc.date}}</a>
