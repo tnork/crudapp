@@ -57,6 +57,14 @@ button {
   padding: 30px !important;
 }
 
+.date {
+  font-size: 11px !important;
+}
+
+.description {
+  font-size: 13px !important;
+}
+
 .edit-default {
   font-size: 13px;
 }
@@ -65,25 +73,20 @@ button {
   font-size: 12px;
 }
 
+gly-btn {
+  color: black !important;
+}
+
+gly-btn:hover {
+  color: black !important;
+}
+
+glyphicon-chevron-left:hover {
+  color: #c7c7c7 !important;
+}
+
 .head-title {
   font-size: 16px !important;
-}
-
-.description {
-  font-size: 13px !important;
-}
-
-.priority {
-  font-size: 12px !important;
-    color: #D9534F;
-}
-
-.date {
-  font-size: 11px !important;
-}
-
-.time {
-  font-size: 11px !important;
 }
 
 .hero-div{
@@ -119,6 +122,24 @@ button {
   background: #c00;
 }
 
+.index-content {
+  font-size: 13px;
+}
+
+.index-title {
+  font-size: 22px;
+}
+
+input, textarea {
+  font-size: 13px;
+}
+
+.img-main {
+  margin-top: -20px !important:
+  overflow: hidden !important;
+  height: 35% !important;
+}
+
 .jumbo-button-wrapper {
   width:100%;
   height:400px;
@@ -140,24 +161,6 @@ button {
 
 .left {
   text-align: left !important;
-}
-
-.index-content {
-  font-size: 13px;
-}
-
-.index-title {
-  font-size: 22px;
-}
-
-input, textarea {
-  font-size: 13px;
-}
-
-.img-main {
-  margin-top: -20px !important:
-  overflow: hidden !important;
-  height: 35% !important;
 }
 
 .panel .hover-em {
@@ -189,12 +192,12 @@ nav h1 {
 }
 
 .navbar-brand-centered {
-    position: absolute;
-    left: 50%;
-    display: block;
-    text-align: center;
-    vertical-align: middle !important;
-    background-color: transparent;
+  position: absolute;
+  left: 50%;
+  display: block;
+  text-align: center;
+  vertical-align: middle !important;
+  background-color: transparent;
 }
 
 .no-radius {
@@ -218,6 +221,11 @@ nav h1 {
 .panel-body span:hover {
   background-color: #CC0000 !important;
   font-size: 12px;
+}
+
+.priority {
+  font-size: 12px !important;
+    color: #D9534F;
 }
 
 .remove {
@@ -259,30 +267,16 @@ textarea {
   resize: both;
 }
 
+.time {
+  font-size: 11px !important;
+}
+
 .title {
   font-family: Lobster;
   color: #CC0000;
   /*#c62828;*/
   margin-top: 2px !important;
 }
-
-gly-btn {
-  color: black !important;
-}
-
-gly-btn:hover {
-  color: black !important;
-}
-
-glyphicon-chevron-left:hover {
-  color: #c7c7c7 !important;
-}
-
-
-
-
-
-
 
 
 
