@@ -44,6 +44,14 @@ button {
   background-color: #CC0000 !important;
 }
 
+.btn-main {
+  background-color: #ff4444 !important;
+}
+
+.btn-main:hover {
+  background-color: #CC0000 !important;
+}
+
 .edit-default {
   font-size: 13px;
 }
