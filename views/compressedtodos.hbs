@@ -1,8 +1,8 @@
 <div class="img-responsive">
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-header">
-      <a href="/todos"><button type="button" class="btn btn-default navbar-btn pull-left">
-        <span class="glyphicon glyphicon-chevron-left remove"></span>
+      <a href="/todos" ><button type="button" class="btn navbar-btn pull-left">
+        <span class="glyphicon glyphicon-chevron-left remove" style="color:black;"></span>
       </button></a>
       <h1 class="nowrap title"> &nbsp; &nbsp; {{title}}</h1>
     </div>
@@ -27,11 +27,11 @@
 
  <a href="/todos/{{uuid}}" class="list-group-item list-group-item-action flex-column align-items-start">
   <div class="d-flex w-100 justify-content-between">
-    <h5 class="mb-1">Title: {{title}}</h5>
-    <small><strong>{{time}} <br/> {{date}}</strong></small>
+    <h5 class="mb-1 head-title">Title: {{title}}</h5>
+    <small class="time date"><strong>{{time}} <br/> {{date}}</strong></small>
   </div>
-  <p class="left mb-1">{{description}}</p>
-  <h8>Priority: {{priority}}</h8>
+  <p class="left mb-1 description">{{description}}</p>
+  <h8 class="priority"<strong>Priority: {{priority}}</h8><br/>
 </a>
 
 {{/each}}
