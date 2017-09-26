@@ -32,6 +32,14 @@ button {
   margin-bottom: 5px !important;
 }
 
+.button-special {
+  color: #ff4444 !important;
+}
+
+.button-special:hover {
+  color: #CC0000 !important;
+}
+
 .btn-danger:hover {
   background-color: #CC0000 !important;
 }
@@ -162,9 +170,13 @@ nav h1 {
   white-space: nowrap ;
 }
 
+.panel-heading a {
+  background-color: #4285F4;
+}
+
 .panel-heading a:hover {
   color: white !important;
-  background-color: #0d47a1 !important;
+  background-color: #1565c0 !important;
   font-size: 15px;
 }
 
