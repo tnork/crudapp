@@ -106,7 +106,7 @@ glyphicon-chevron-left:hover {
 }
 
 .hero-div button {
-  padding: 15px 50px;
+  padding: 15px 40px;
   border: 0;
   background: #b20000;
   color: #fff;
@@ -273,7 +273,9 @@ textarea {
 
 .title {
   font-family: Lobster;
-  color: #CC0000;
+  color: #d9534f;
+  /*#b20000;*/
+  /*#CC0000;*/
   /*#c62828;*/
   margin-top: 2px !important;
 }
