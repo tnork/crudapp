@@ -280,7 +280,12 @@ textarea {
   margin-top: 2px !important;
 }
 
-
+.special-title {
+  font-family: Lobster;
+  color: #d9534f !important;
+  font-size:43px;
+  margin-top: 2px !important;
+}
 
 
 /*!
