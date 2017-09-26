@@ -32,6 +32,10 @@ button {
   margin-bottom: 5px !important;
 }
 
+.btn-danger:hover {
+  background-color: #CC0000 !important;
+}
+
 .edit-default {
   font-size: 13px;
 }
@@ -158,14 +162,15 @@ nav h1 {
   white-space: nowrap ;
 }
 
-.panel-heading:hover {
+.panel-heading a:hover {
   color: white !important;
+  background-color: #0d47a1 !important;
   font-size: 15px;
 }
 
-.panel-heading a:hover {
-  color: white !important;
-  font-size: 15px;
+.panel-body span:hover {
+  background-color: #CC0000 !important;
+  font-size: 12px;
 }
 
 .remove {
@@ -189,6 +194,11 @@ span .label-danger {
   font-size: 12px !important;
 }
 
+span .label-danger:hover {
+  font-size: 14px !important;
+}
+
+
 .special {
   vertical-align: middle !important;
   text-align: center !important;
@@ -196,9 +206,14 @@ span .label-danger {
 }
 
 .super-red {
-  color: #fff !important;
+  color: #CC0000 !important;
 }
 
 textarea {
   resize: both;
+}
+
+.title {
+  font-family: Lobster;
+  color: #CC0000;
 }

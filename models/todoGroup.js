@@ -12,18 +12,19 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 const Schema = mongoose.Schema;
 
-const todosSchema = mongoose.Schema({
+const todoGroupSchema = mongoose.Schema({
   title:  String,
-  priority: Number,
-  description: String,
-  done: Boolean,
-  date: String,
-  inProgress: Boolean,
-  time: String,
-  uuid: String
+  todosArray: [],
+  num: Number
 });
 
-const Todos = mongoose.model('Todos', todosSchema);
+const allGroupSchema = mongoose.Schema({
+  groupArray: [],
+  num: Number
+});
 
-module.exports = mongoose.model('Todos', todosSchema);
-module.exports.Todos = Todos;
+const TaskGroup = mongoose.model('TaskGroup', todoGroupSchema);
+const AllGroup = mongoose.model('AllGroup', allGroupSchema);
+
+module.exports.TaskGroup = TaskGroup;
+module.exports.AllGroup = AllGroup;
