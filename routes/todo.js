@@ -156,9 +156,15 @@ function lookupTitle(id) {
 }
 
 function displayTime() {
-  var options = { timeZone: 'PST', timeZoneName: 'short', hour12: true };
+  var options = { timeZoneName: 'short', hour12: false, timeZone: 'America/Los_Angeles' };
   var nowTime = new Date().toLocaleTimeString(options);
-  return nowTime;
+  if (nowTime > '12:00:00') {
+    nowTime += ' PM';
+    return nowTime;
+  } else {
+    nowTime += ' AM';
+    return nowTime;
+  }
 }
 
 function todaysDate() {
