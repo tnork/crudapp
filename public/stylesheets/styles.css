@@ -121,6 +121,10 @@ input, textarea {
   font-size: 13px;
 }
 
+.list-group:hover {
+  color: black !important;
+}
+
 .list-group-item:hover {
   color: black !important;
 }
