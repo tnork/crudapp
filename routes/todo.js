@@ -191,7 +191,7 @@ function displayTime() {
 
 function AMDecider() {
     var boolTime = new Date().toLocaleTimeString({ timeZoneName: 'short', hour12: false, timeZone: 'America/Los_Angeles' });
-    if (boolTime < '12:00:00') {
+    if (boolTime.indexOf('AM' !== -1)) {
       // console.log('Decided time was AM');
       return true;
     } else {
