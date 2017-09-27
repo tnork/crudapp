@@ -9,6 +9,8 @@ const mongoose = require('mongoose')
   , Schema = mongoose.Schema, ObjectId = Schema.ObjectId;
 const todos = require('../models/todos');
 const Todos = require('mongoose').model('Todos');
+const todoGroup = require('../models/todoGroup');
+const thisGroup = require('mongoose').model('thisGroup');
 
 // View all
 router.get('/', (req, res) => {
@@ -37,6 +39,17 @@ router.get('/new', (req, res) => {
   res.render('new', {title: "New Todo :"});
 });
 
+// Groups Main
+router.get('/groups', (req, res) => {
+  thisGroup.find(function(err, groups) {
+    if(!err){
+    res.render('groupsMain', {title: "All Groups :", groups: groups.reverse()});
+  } else {
+    res.send(err);
+  }
+  });
+});
+
 // View one
 router.get('/:id', (req, res) => {
   let id = req.params.id;
@@ -63,6 +76,7 @@ router.post('/', function(req, res, next) {
     date: todaysDate(),
     inProgress: req.body.inProgress,
     time: displayTime(),
+    displayAM: AMDecider(),
     uuid: uuidv4()
   });
 
@@ -89,6 +103,7 @@ router.post('/update/:id', (req, res, next) => {
     date: todaysDate(),
     inProgress: req.body.inProgress == 'false' ? false : true,
     time: displayTime(),
+    displayAM: AMDecider(),
     uuid: id
   }, {upsert: true, 'new': true}, function(err, res) {
   });
@@ -130,6 +145,7 @@ router.get('/delete/:id', (req, res, next) => {
     }, 300);
 }});
 
+
 // Validation for New Todo (Is already required field in view template anyway), returns true if valid
 function validTodo(todo) {
   return typeof todo.title == 'string' && typeof todo.title.trim() != '' && typeof todo.priority == 'number';
@@ -159,12 +175,25 @@ function displayTime() {
   var options = { timeZoneName: 'short', hour12: false, timeZone: 'America/Los_Angeles' };
   var nowTime = new Date().toLocaleTimeString(options);
   if (nowTime > '12:00:00') {
+    nowTime.slice(0, -3);
     nowTime += ' PM';
     return nowTime;
   } else {
+    nowTime.slice(0, -3);
     nowTime += ' AM';
     return nowTime;
   }
+}
+
+function AMDecider() {
+    var boolTime = displayTime();
+    if (boolTime < '12:00:00') {
+      console.log('Decided time was AM');
+      return true;
+    } else {
+      console.log('Updated time was PM');
+      return false;
+    }
 }
 
 function todaysDate() {

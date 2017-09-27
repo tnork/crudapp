@@ -26,7 +26,15 @@
     <a class="list-group-item" href="/todos/edit/{{doc.uuid}}">Description: {{doc.description}}</a>
     <!-- <a class="list-group-item">Completed : {{doc.done}}</a> -->
     <a class="list-group-item" href="/todos/edit/{{doc.uuid}}">Date: {{doc.date}}</a>
-    <a class="list-group-item" href="/todos/edit/{{doc.uuid}}">Time: {{doc.time}} PST</a>
+    <a class="list-group-item" href="/todos/{{uuid}}">
+      {{#if displayAM}}
+        <img src="/images/glyphicons-232-sun.png" class="am-glyph" />
+      {{else}}
+        <img src="/images/glyphicons-231-moon.png" class="am-glyph" />
+      {{/if}}
+      &nbsp;
+      Time: {{doc.time}}
+    </a>
 
     {{#if doc.inProgress}}
         <a class="list-group-item list-group-item-success" href="/todos/edit/{{doc.uuid}}">In Progress</a>

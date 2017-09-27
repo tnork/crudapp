@@ -1,30 +1,43 @@
 const mongoose = require('mongoose');
 const keys = require('../config/keys');
-
-//Set up default mongoose connection
-mongoose.connect(keys.mongoURI);
-
-//Get the default connection
-const db = mongoose.connection;
-
-//Bind connection to error event (to get notification of connection errors)
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+const db = require('../config/db');
 
 const Schema = mongoose.Schema;
 
-const todoGroupSchema = mongoose.Schema({
+var todoGroupSchema = mongoose.Schema({
   title:  String,
+  notes: String,
   todosArray: [],
   num: Number
 });
 
-const allGroupSchema = mongoose.Schema({
+var allGroupSchema = mongoose.Schema({
   groupArray: [],
   num: Number
 });
 
-const TaskGroup = mongoose.model('TaskGroup', todoGroupSchema);
-const AllGroup = mongoose.model('AllGroup', allGroupSchema);
+var oneGroup =  mongoose.model('oneGroup', allGroupSchema);
+var thisGroup =  mongoose.model('thisGroup', todoGroupSchema);
 
-module.exports.TaskGroup = TaskGroup;
-module.exports.AllGroup = AllGroup;
+let allGroups = new oneGroup({
+  groupArray: [],
+  num: 1
+});
+
+let newGroup = new thisGroup({
+  title: 'First Group',
+  todosArray: [],
+  num: 0
+});
+
+allGroups.save();
+newGroup.save();
+// newGroup.save(function(err) {
+//       if(!err){
+//         res.redirect('/todos');
+//       } else {
+//         console.log(err);
+//       }
+// });
+
+module.exports.thisGroup = thisGroup;

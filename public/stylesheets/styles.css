@@ -9,6 +9,11 @@ a {
   color: #00B7FF;
 }
 
+.am-glyph {
+  height: 14px;
+  margin-bottom: 4px;
+}
+
 .badge-pill {
   margin-top: 1px !important;
   margin-left: 3px !important;
@@ -59,6 +64,10 @@ button {
 
 .date {
   font-size: 11px !important;
+}
+
+.date:hover {
+  font-weight: 500 !important;
 }
 
 .description {
@@ -163,12 +172,8 @@ input, textarea {
   text-align: left !important;
 }
 
-.panel .hover-em {
-  color: #fff !important;
-}
-
-.panel-default {
-  font-size: 13px;
+.limited {
+   margin-right: 18px;
 }
 
 .list-group:hover {
@@ -208,6 +213,14 @@ nav h1 {
   white-space: nowrap ;
 }
 
+.panel .hover-em {
+  color: #fff !important;
+}
+
+.panel-default {
+  font-size: 13px;
+}
+
 .panel-heading a {
   background-color: #4285F4;
 }
@@ -224,8 +237,13 @@ nav h1 {
 }
 
 .priority {
-  font-size: 12px !important;
-    color: #D9534F;
+  font-size: 13px !important;
+  color: #D9534F;
+}
+
+.priority:hover {
+  color: #ff4444 !important;
+  font-weight: 500 !important;
 }
 
 .remove {
@@ -269,6 +287,10 @@ textarea {
 
 .time {
   font-size: 11px !important;
+}
+
+.date:hover {
+  font-weight: 500 !important;
 }
 
 .title {

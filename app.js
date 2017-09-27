@@ -23,6 +23,7 @@ fs.readdirSync(models_path).forEach(function (file) {
 const index = require('./routes/index');
 const users = require('./routes/users');
 const todo = require('./routes/todo');
+const groups = require('./routes/groups');
 
 var app = express();
 
@@ -37,6 +38,29 @@ hbs.registerHelper('select', function(selected, options) {
     '$& selected="selected"');
 });
 
+// Handlebars.registerHelper('iff', function(a, operator, b, opts) {
+//     var bool = false;
+//     switch(operator) {
+//        case '==':
+//            bool = a == b;
+//            break;
+//        case '>':
+//            bool = a > b;
+//            break;
+//        case '<':
+//            bool = a < b;
+//            break;
+//        default:
+//            throw "Unknown operator " + operator;
+//     }
+//
+//     if (bool) {
+//         return opts.fn(this);
+//     } else {
+//         return opts.inverse(this);
+//     }
+// });
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -49,6 +73,7 @@ app.use(methodOverride('_method'));
 // Route Mounts
 app.use('/', index);
 app.use('/users', users);
+app.use('/groups', todo);
 app.use('/todos', todo);
 
 // catch 404 and forward to error handler

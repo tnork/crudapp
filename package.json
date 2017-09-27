@@ -1,7 +1,7 @@
 {
   "name": "crudapp",
   "version": "0.0.0",
-  "description": "CRUD! FTW",
+  "description": "Todo Depot: CRUD Demo",
   "author": "Tyler Norkus",
   "private": true,
   "scripts": {

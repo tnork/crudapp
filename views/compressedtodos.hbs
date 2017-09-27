@@ -25,15 +25,24 @@
 
 {{#each todos}}
 
- <a href="/todos/{{uuid}}" class="list-group-item list-group-item-action flex-column align-items-start">
+ <a href="/todos/{{uuid}}" class="list-group-item list-group-item-action flex-column align-items-start" style="padding:15px;">
   <div class="d-flex w-100 justify-content-between">
-    <h5 class="mb-1 head-title">Title: {{title}}</h5>
-    <small class="time date"><strong>{{time}} <br/> {{date}}</strong></small>
+    <div class="col-lg-8 col-md-8 col-sm-8 col-8" style="text-align:left;">
+      <h5 class="mb-1 head-title">Title: {{title}}</h5>
+    </div>
+    <div class="col-sm-4 col-4">
+      <small class="time date">{{time}} <br/> {{date}}</small>
+    </div>
   </div>
-  <p class="left mb-1 description">{{description}}</p>
-  <h8 class="priority"<strong>Priority: {{priority}}</h8><br/>
-</a>
+    <div class="d-flex w-100 justify-content-between">
+  <div class="col-lg-10 col-md-10 col-sm-10 col-10" style="text-align:left;">
+    <p class="left mb-1 description">{{description}}</p>
+  </div>
+</div>
+  <p class="priority">Priority: {{priority}}</p></a>
+</div>
 
+<br/>
 {{/each}}
 
 </div>

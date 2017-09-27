@@ -33,9 +33,15 @@
     <a class="list-group-item" href="/todos/{{uuid}}">Description: {{description}}</a>
     <!-- <a class="list-group-item">Completed : {{done}}</a> -->
     <a class="list-group-item" href="/todos/{{uuid}}">Date: {{date}}</a>
-    <a class="list-group-item" href="/todos/{{uuid}}">Time: {{time}} PST</a>
-  </a>
-
+    <a class="list-group-item" href="/todos/{{uuid}}">
+      {{#if displayAM}}
+        <img src="/images/glyphicons-232-sun.png" class="am-glyph" />
+      {{else}}
+        <img src="/images/glyphicons-231-moon.png" class="am-glyph" />
+      {{/if}}
+      &nbsp;
+      Time: {{time}}
+    </a>
 
   {{#if inProgress}}
       <a class="list-group-item list-group-item-success" href="/todos/{{uuid}}">In Progress</a>
