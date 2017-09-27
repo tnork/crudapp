@@ -180,9 +180,9 @@ function displayTime() {
     return nowTime;
   } else {
     nowTime.slice(nowTime.length, -3);
-    console.log('Time1 :' + nowTime);
+    // console.log('Time1 :' + nowTime);
     nowTime += ' AM';
-    console.log('Time2 :' + nowTime)
+    // console.log('Time2 :' + nowTime)
     return nowTime;
   }
 }
@@ -190,10 +190,10 @@ function displayTime() {
 function AMDecider() {
     var boolTime = displayTime();
     if (boolTime < '12:00:00') {
-      console.log('Decided time was AM');
+      // console.log('Decided time was AM');
       return true;
     } else {
-      console.log('Updated time was PM');
+      // console.log('Updated time was PM');
       return false;
     }
 }
