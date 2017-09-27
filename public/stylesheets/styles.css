@@ -112,6 +112,7 @@ glyphicon-chevron-left:hover {
   text-align: center;
   position: relative;
   overflow: hidden;
+  min-height: 214px !important;
 }
 
 .hero-div button {
