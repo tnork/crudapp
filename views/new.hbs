@@ -14,13 +14,13 @@
   </div>
 
   <div class="form-group">
-    <label for="description" class="edit-default">Description:</label>
-    <textarea type="text" class="form-control edit-default" style="font-size:13px;" rows="5" name="description" id="description" value="" placeholder="Enter a description (optional)" onkeyup="{function () {textarea.style.height = textarea.clientHeight + 'px';}}"></textarea>
-  </div>
+    <label for="description" class="edit-default">Description</label>
+    <input value="{{doc.description}}" style="font-size:13px;word-break:break-word;" type="text" class="form-control edit-default" rows="5" name="description" id="description" placeholder="Enter a description" required>
+ </div>
 
   <div class="form-group">
     <label for="priority" id="priority" class="edit-default">Select Priority:</label>
-    <select class="form-control edit-default" id="priority" name="priority">
+    <select class="form-control edit-default" id="priority" name="priority" >
       <option value="1" id="1" key="1"> 1 </option>
       <option value="2" id="2" key="2"> 2 </option>
       <option value="3" id="3" key="3"> 3 </option>

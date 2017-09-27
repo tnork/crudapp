@@ -8,19 +8,19 @@
 </nav><br/><br/>
 
 <form class="form" action="/todos/update/{{doc.uuid}}" method="post">
-  <div class="form-group limited">
+  <div class="form-group">
     <label for="title" class="edit-default">Title:</label>
     <input value="{{doc.title}}" style="font-size:13px;" maxlength="44" type="text" class="form-control" name="title" id="title" placeholder="Enter a todo" required>
   </div>
 
   <div class="form-group">
-    <label for="description" class="edit-default">Description:</label>
-    <textarea type="text" style="font-size:13px;" class="form-control edit-default" rows="5" name="description" id="description" value="{{doc.description}}" placeholder="{{doc.description}}" onkeyup="{function () {textarea.style.height = textarea.clientHeight + 'px';}}"></textarea>
-  </div>
+    <label for="description" class="edit-default">Description</label>
+    <input value="{{doc.description}}" style="font-size:13px;word-break:break-word;" type="text" class="form-control edit-default" rows="5" name="description" id="description" placeholder="{{doc.description}}" required>
+ </div>
 
   <div class="form-group">
     <label for="priority" id="priority" class="edit-default">Select Priority:</label>
-    <select class="form-control edit-default" rows="2" id="priority" name="priority">
+    <select class="form-control edit-default" id="priority" name="priority">
       {{#select doc.priority}}
       <option value="1" id="1" key="1">Priority 1</option>
       <option value="2" id="2" key="2">Priority 2</option>
@@ -35,8 +35,8 @@
     <label for="inProgress" id="inProgress" class="edit-default">In Progress:</label>
     <select class="form-control edit-default" rows="2" id="inProgress" name="inProgress">
       {{#select doc.inProgress}}
-      <option value="false" id="notinProgress" key="false">Not In Progress</option>
-      <option value="true" id="inProgress" key="true">In Progress</option>
+      <option value="false" id="notinProgress" key="false" class="option-md">Not In Progress</option>
+      <option value="true" id="inProgress" key="true" class="option-md">In Progress</option>
       {{/select}}
     </select>
   </div>

@@ -82,6 +82,10 @@ button {
   font-size: 12px;
 }
 
+.form-group {
+  padding: 16px !important;
+}
+
 gly-btn {
   color: black !important;
 }
@@ -216,6 +220,10 @@ nav h1 {
 
 .nowrap {
   white-space: nowrap ;
+}
+
+.option-md {
+   font-size: 13px !important;
 }
 
 .panel .hover-em {
