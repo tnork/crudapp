@@ -173,8 +173,9 @@ function lookupTitle(id) {
 }
 
 function displayTime() {
-  var moment = new Date().toLocaleTimeString({ timeZoneName: 'short', hour12: false, timeZone: 'America/Los_Angeles' });
+  var moment = new Date().toTimeString();
   return moment;
+
   // if (nowTime > '12:00:00') {
   //   nowTime.slice(nowTime.length, -3);
   //   nowTime += ' PM';
