@@ -173,8 +173,10 @@ function lookupTitle(id) {
 }
 
 function displayTime() {
-  var moment = new Date().toTimeString();
-  return moment;
+  // var moment = new Date().toTimeString();
+  // return moment;
+
+return new Date().toLocaleTimeString({ timeZoneName: 'short', hour12: false, timeZone: 'America/Los_Angeles' });
 
   // if (nowTime > '12:00:00') {
   //   nowTime.slice(nowTime.length, -3);
