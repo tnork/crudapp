@@ -173,7 +173,7 @@ function lookupTitle(id) {
 }
 
 function displayTime() {
-  var moment = new Date().toLocaleTimeString({ timeZoneName: 'short', hour12: false, timeZone: 'America/Los_Angeles' });
+  var moment = new Date().toLocaleTimeString({ timeZoneName: 'short', hour12: false, timeZone: 'UTC' });
   return moment;
   // if (nowTime > '12:00:00') {
   //   nowTime.slice(nowTime.length, -3);
@@ -189,7 +189,7 @@ function displayTime() {
 }
 
 function AMDecider() {
-    var boolTime = new Date().toLocaleTimeString({ timeZoneName: 'short', hour12: false, timeZone: 'America/Los_Angeles' });
+    var boolTime = new Date().toLocaleTimeString({ timeZoneName: 'short', hour12: false, timeZone: 'UTC' });
     if (boolTime < '12:00:00') {
       // console.log('Decided time was AM');
       return true;
