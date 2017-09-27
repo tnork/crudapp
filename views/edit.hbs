@@ -7,13 +7,13 @@
     </div>
 </nav><br/><br/>
 
-<form class="form" action="/todos/update/{{doc.uuid}}" method="post" style="margin-right:4px;>
+<form class="form" action="/todos/update/{{doc.uuid}}" method="post" style="margin-right:5px;"">
   <div class="form-group">
     <label for="title" class="edit-default">Title:</label>
     <input value="{{doc.title}}" style="font-size:13px;" maxlength="44" type="text" class="form-control" name="title" id="title" placeholder="Enter a todo" required>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" style="margin-right:4px;">
     <label for="description" class="edit-default">Description</label>
     <input value="{{doc.description}}" style="font-size:13px;word-break:break-word;" type="text" class="form-control edit-default" rows="5" name="description" id="description" placeholder="{{doc.description}}" required>
  </div>
