@@ -177,13 +177,13 @@ function displayTime() {
   // return moment;
   let nowTime = new Date().toLocaleTimeString({timeZone: 'America/Los_Angeles' });
   if (nowTime > '12:00:00') {
-    nowTime.slice(nowTime.length, -3);
-    nowTime += ' PM';
+    nowTime.slice(nowTime.length, -7);
+    nowTime += ' PM PST';
     return nowTime;
   } else {
-    nowTime.slice(nowTime.length, -3);
+    nowTime.slice(nowTime.length, -7);
     // console.log('Time1 :' + nowTime);
-    nowTime += ' AM';
+    nowTime += ' AM PST';
     // console.log('Time2 :' + nowTime)
     return nowTime;
   }
