@@ -11,6 +11,7 @@ const todos = require('../models/todos');
 const Todos = require('mongoose').model('Todos');
 const todoGroup = require('../models/todoGroup');
 const thisGroup = require('mongoose').model('thisGroup');
+const moment = require('moment');
 
 // View all
 router.get('/', (req, res) => {
@@ -172,19 +173,19 @@ function lookupTitle(id) {
 }
 
 function displayTime() {
-  var options = { timeZoneName: 'short', hour12: false, timeZone: 'America/Los_Angeles' };
-  var nowTime = new Date().toLocaleTimeString(options);
-  if (nowTime > '12:00:00') {
-    nowTime.slice(nowTime.length, -3);
-    nowTime += ' PM';
-    return nowTime;
-  } else {
-    nowTime.slice(nowTime.length, -3);
-    // console.log('Time1 :' + nowTime);
-    nowTime += ' AM';
-    // console.log('Time2 :' + nowTime)
-    return nowTime;
-  }
+  var moment = new Date().toLocaleTimeString({ timeZoneName: 'short', hour12: false, timeZone: 'America/Los_Angeles' });
+  return moment;
+  // if (nowTime > '12:00:00') {
+  //   nowTime.slice(nowTime.length, -3);
+  //   nowTime += ' PM';
+  //   return nowTime;
+  // } else {
+  //   nowTime.slice(nowTime.length, -3);
+  //   // console.log('Time1 :' + nowTime);
+  //   nowTime += ' AM';
+  //   // console.log('Time2 :' + nowTime)
+  //   return nowTime;
+  // }
 }
 
 function AMDecider() {
