@@ -206,6 +206,10 @@ nav h1 {
   background-color: transparent;
 }
 
+.navbar-header-double {
+  margin-left: -40px !important;
+}
+
 .no-radius {
   border-radius: 0px !important;
 }
@@ -248,7 +252,7 @@ nav h1 {
 }
 
 .remove {
-  margin-left: 0px !important;
+  margin-left: -0px !important;
   padding: 0px !important;
   text-align: left !important;
 }
