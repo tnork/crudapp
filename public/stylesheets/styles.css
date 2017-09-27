@@ -274,6 +274,7 @@ select {
 span, .badge {
   margin-left: 5px;
   text-align: left !important;
+  padding: 5px !important;
 }
 
 span .label-danger {
