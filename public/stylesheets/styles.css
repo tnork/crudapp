@@ -277,6 +277,14 @@ span .label-danger:hover {
   padding-left: 15px !important;
 }
 
+.special-title {
+  font-family: Lobster;
+  color: #d9534f !important;
+  font-size:43px;
+  padding: 1px !important;
+  margin: 1px !important;
+}
+
 .super-red {
   color: #CC0000 !important;
 }
@@ -289,10 +297,6 @@ textarea {
   font-size: 11px !important;
 }
 
-.date:hover {
-  font-weight: 500 !important;
-}
-
 .title {
   font-family: Lobster;
   color: #d9534f;
@@ -302,13 +306,6 @@ textarea {
   margin-top: 2px !important;
 }
 
-.special-title {
-  font-family: Lobster;
-  color: #d9534f !important;
-  font-size:43px;
-  padding: 1px !important;
-  margin: 1px !important;
-}
 
 
 /*!
