@@ -380,6 +380,11 @@ span .label-danger:hover {
   margin: 1px !important;
 }
 
+.special-title-plus:hover {
+  text-decoration: none;
+  font-size: 20px;
+}
+
 .super-red {
   color: #CC0000 !important;
 }
