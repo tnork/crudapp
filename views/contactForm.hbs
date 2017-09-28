@@ -26,14 +26,18 @@
       <textarea class="form-control edit-default" id="message" name="message" value="message" rows="7" style="font-size:13px;word-break:break-word;" placeholder="Please enter a message" required></textarea>
     </div>
 
-  <div class="row recaptcha-style">
+  <div class="row recaptcha-style" style="align-items:center;">
       <form action="?" method="POST">
+        <div id="html_element"></div>
         <div class="g-recaptcha" data-sitekey="{{siteKey}}"></div> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-        <button type="submit" value="submit" name="button" class="btn btn-danger btn-lg" style="vertical-align:center;">
+        <button type="submit" value="Submit" name="button" class="btn btn-danger btn-lg" style="vertical-align:center;">
           <img src="/images/email-16.png" class="message-icon" />  &nbsp; Send Your Message
         </button>
     </form>
   </div>
+
+  <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+      async defer>
 
   <br/>
 
