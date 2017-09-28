@@ -9,17 +9,17 @@
 
 <form class="form" action="/todos" method="post" style="margin-right:1px;">
   <div class="form-group limited">
-    <label for="title" class="edit-default">Title:</label>
-    <input type="text" maxlength="44" class="form-control"  style="font-size:13px;" name="title" id="title" value="" placeholder="Enter a todo" required>
+    <label for="title" class="edit-default">Title:</label><br/><br/>
+    <input type="text" maxlength="44" class="form-control"  style="font-size:13px;" name="title" id="title" placeholder="Enter a todo" required>
   </div>
 
   <div class="form-group" style="margin-right:8px;">
-    <label for="description" class="edit-default">Description</label>
+    <label for="description" class="edit-default">Description:</label><br/><br/>
     <input value="{{doc.description}}" style="font-size:13px;" type="text" class="form-control edit-default" rows="5" name="description" id="description" placeholder="Enter a description" required></div>
  </div>
 
   <div class="form-group">
-    <label for="priority" id="priority" class="edit-default">Select Priority:</label>
+    <label for="priority" id="priority" class="edit-default">Select Priority:</label><br/><br/>
     <select class="form-control edit-default" id="priority" name="priority" >
       <option value="1" id="1" key="1" class="select-item"> 1 </option>
       <option value="2" id="2" key="2" class="select-item"> 2 </option>
@@ -30,7 +30,7 @@
   </div>
 
   <div class="form-group">
-    <label for="inProgress" id="inProgress" class="edit-default">In Progress:</label>
+    <label for="inProgress" id="inProgress" class="edit-default">In Progress:</label><br/><br/>
     <select class="form-control edit-default" id="inProgress" name="inProgress">
       {{#select doc.inProgress}}
       <option value="false" id="notinProgress" key="false" class="select-item">Not In Progress</option>
@@ -38,12 +38,11 @@
       {{/select}}
     </select>
   </div>
-
 <br/>
-<button type="submit" name="button" class="btn btn-danger btn-lg">
-<span class="glyphicon glyphicon-floppy-disk edit-default" aria-hidden="true"></span>  &nbsp; Save Your Todo
-</button></a>
+
+  <button type="submit" name="button" class="btn btn-danger btn-lg">
+  <span class="glyphicon glyphicon-floppy-disk edit-default" aria-hidden="true"></span>  &nbsp; Save Your Todo
+  </button></a>
+</form>
 
 <br/><br/><br/>
-
-</form>

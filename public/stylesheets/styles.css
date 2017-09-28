@@ -62,6 +62,16 @@ button {
   padding: 30px !important;
 }
 
+.contact-em {
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 0px solid #000000;
+}
+
 .date {
   font-size: 11px !important;
 }
@@ -198,6 +208,26 @@ input.break {
 
 .list-group-item:hover {
   color: black !important;
+}
+
+.main-r-pill {
+  text-decoration:none;
+  color:#333333;
+  font-size:12px;
+  font-weight:bold;
+  padding:0 15px;
+  line-height:32px;
+  height: auto;
+  display:inline-block;
+  text-align:center;
+  background-color:#DDDDDD;
+    -webkit-border-radius: 16px;
+    -moz-border-radius: 16px;
+    border-radius: 16px;
+}
+
+.message-icon {
+    margin-bottom: 4px;
 }
 
 .min-standard {
@@ -342,6 +372,14 @@ span .label-danger:hover {
   margin: 1px !important;
 }
 
+.special-title-plus {
+  font-family: Oswald,sans-serif;
+  color: #d9534f !important;
+  font-size: 16px;
+  padding: 1px !important;
+  margin: 1px !important;
+}
+
 .super-red {
   color: #CC0000 !important;
 }
@@ -361,6 +399,10 @@ textarea {
   /*#CC0000;*/
   /*#c62828;*/
   margin-top: 2px !important;
+}
+
+.todos-all {
+  margin-bottom: 35px !important;
 }
 
 .top-pad {

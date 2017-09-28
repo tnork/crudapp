@@ -5,6 +5,8 @@ const methodOverride = require('method-override');
 const dateFormat = require('dateformat');
 const uuid = require('uuid');
 const uuidv4 = require('uuid/v4');
+const keys = require('../config/keys');
+const nodemailer = require('nodemailer');
 const mongoose = require('mongoose')
   , Schema = mongoose.Schema, ObjectId = Schema.ObjectId;
 const todos = require('../models/todos');
@@ -145,6 +147,44 @@ router.get('/delete/:id', (req, res, next) => {
     }, 300);
 }});
 
+// Get contact form
+router.get('/contact/form', (req, res, next) => {
+  res.render('contactForm', {title: "Contact Todo Depot :"});
+});
+
+router.post('/contact/form/submit', (req, res, next) => {
+
+  console.log('Body ' + JSON.stringify(req.body));
+  console.log('Req.body.name: ' + req.body.name);
+  console.log('Req.body.message: ' + req.body.message);
+  console.log('Req.body.email: ' + req.body.email);
+
+
+var transporter = nodemailer.createTransport({
+		service: 'Gmail',
+		auth: {
+			user: keys.emailUser,
+			pass: keys.emailPass
+		}
+	});
+
+	var mailOptions = {
+		to: 'tylerdnorkus@gmail.com',
+		subject: 're: Todo Depot Web App',
+		text: 'You have a submission with the following details... Name: '+req.body.name+'Email: '+req.body.email+ 'Message: '+req.body.message,
+		html: '<p>You have a submission with the following details...</p><ul><li>Name: '+req.body.name+'</li><li>Email: '+req.body.email+'</li><li>Message: '+req.body.message+'</li></ul>'
+	};
+
+	transporter.sendMail(mailOptions, function(error, info){
+		if(error){
+			// console.log(error);
+      res.render('error', {message: 'Sorry. That email message was not submitted through the GSMTP.'});
+		} else {
+			// console.log('Message Sent: '+info.response);
+			res.redirect('/');
+		}
+	});
+});
 
 // Validation for New Todo (Is already required field in view template anyway), returns true if valid
 function validTodo(todo) {
@@ -154,7 +194,6 @@ function validTodo(todo) {
 function lookupDescription(id) {
   mongoose.model('Todos').findOne({uuid: id}, (err, doc) => {
     if(!err){
-      console.log(doc.description);
       return doc.description;
     }
   });

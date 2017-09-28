@@ -9,17 +9,17 @@
 
 <form class="form" action="/todos/update/{{doc.uuid}}" method="post" style="margin-right:5px;">
   <div class="form-group">
-    <label for="title" class="edit-default">Title:</label>
+    <label for="title" class="edit-default">Title:</label><br/><br/>
     <input value="{{doc.title}}" style="font-size:13px;" maxlength="44" type="text" class="form-control" name="title" id="title" placeholder="Enter a todo" required>
   </div>
 
   <div class="form-group" style="margin-right:4px;">
-    <label for="description" class="edit-default">Description</label>
+    <label for="description" class="edit-default">Description:</label><br/><br/>
     <input value="{{doc.description}}" style="font-size:13px;word-break:break-word;" type="text" class="form-control edit-default" rows="5" name="description" id="description" placeholder="{{doc.description}}" required>
  </div>
 
   <div class="form-group">
-    <label for="priority" id="priority" class="edit-default">Select Priority:</label>
+    <label for="priority" id="priority" class="edit-default">Select Priority:</label><br/><br/>
     <select class="form-control edit-default" id="priority" name="priority">
       {{#select doc.priority}}
       <option value="1" id="1" key="1" class="select-item">Priority 1</option>
@@ -32,7 +32,7 @@
   </div>
 
   <div class="form-group">
-    <label for="inProgress" id="inProgress" class="edit-default">In Progress:</label>
+    <label for="inProgress" id="inProgress" class="edit-default">In Progress:</label><br/><br/>
     <select class="form-control edit-default" rows="2" id="inProgress" name="inProgress">
       {{#select doc.inProgress}}
       <option value="false" id="notinProgress" key="false" class="option-md" class="select-item">Not In Progress</option>
@@ -42,7 +42,9 @@
   </div>
 <br/>
 
-<button type="submit" name="button" class="btn btn-danger btn-lg">
-<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>  &nbsp; Save Your Edit
-</button></a>
+  <button type="submit" name="button" class="btn btn-danger btn-lg">
+  <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>  &nbsp; Save Your Edit
+  </button></a>
+</form>
+
 <br/><br/><br/>

@@ -21,7 +21,7 @@
 
 {{#each todos}}
 
-<div class="panel panel-default table-responsive shadow">
+<div class="panel panel-default table-responsive shadow todos-all">
   <div class="panel-heading">
   <a href="/todos/{{uuid}}" class="left list-group-item active">
   &nbsp; Title: &nbsp;  {{title}}
@@ -52,8 +52,6 @@
 </div>
 
 {{/each}}
-
-<br/>
 
 <div class="w3-container">
   <a href="/todos/new"><button name="button" class="w3-button w3-large w3-circle w3-red w3-card-4">+</button></a>

@@ -1,0 +1,40 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header-double">
+      <a href="/"><button type="button" class="btn navbar-btn pull-left top-btn">
+        <span class="glyphicon glyphicon-chevron-left remove" style="color:black;"></span>
+      </button></a>
+      <h1 class="nowrap title"> &nbsp; &nbsp; {{title}}</h1>
+    </div>
+</nav><br/><br/>
+
+
+<div class="container">
+  <form class="form" action="/todos/contact/form/submit" method="post">
+
+    <div class="form-group">
+      <label for="username" class="edit-default">Name:</label>
+      <input type="text" class="form-control option-md" name="name" id="username" aria-describedby="nameHelp" placeholder="Please enter your name" required>
+    </div>
+
+    <div class="form-group">
+      <label for="message" class="edit-default">Message:</label><br/><br/>
+      <textarea class="form-control edit-default" id="message" name="message" value="message" rows="7" style="font-size:13px;word-break:break-word;" placeholder="Please enter a message" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="newEmail" class="edit-default">Email:</label>
+      <input type="email" class="form-control option-md" name="email" id="newEmail" aria-describedby="emailHelp" placeholder="Please enter your email" required>
+    </div>
+
+  <button type="submit" name="button" class="btn btn-danger btn-lg">
+    <img src="/images/email-16.png" class="message-icon" />  &nbsp; Send Your Message
+  </button>
+
+  </a><br/><br/>
+
+  <small id="emailHelp" class="form-text text-muted" style="font-size:10px;">Your privacy is important. Todo Depot will never share your email with anyone else.</small>
+
+</form>
+</div>
+
+  <br/><br/><br/>
