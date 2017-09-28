@@ -21,11 +21,11 @@
   <div class="form-group">
     <label for="priority" id="priority" class="edit-default">Select Priority:</label>
     <select class="form-control edit-default" id="priority" name="priority" >
-      <option value="1" id="1" key="1"> 1 </option>
-      <option value="2" id="2" key="2"> 2 </option>
-      <option value="3" id="3" key="3"> 3 </option>
-      <option value="4" id="4" key="4"> 4 </option>
-      <option value="5" id="5" key="5"> 5 </option>
+      <option value="1" id="1" key="1" class="select-item"> 1 </option>
+      <option value="2" id="2" key="2" class="select-item"> 2 </option>
+      <option value="3" id="3" key="3" class="select-item"> 3 </option>
+      <option value="4" id="4" key="4" class="select-item"> 4 </option>
+      <option value="5" id="5" key="5" class="select-item"> 5 </option>
     </select>
   </div>
 
@@ -33,8 +33,8 @@
     <label for="inProgress" id="inProgress" class="edit-default">In Progress:</label>
     <select class="form-control edit-default" id="inProgress" name="inProgress">
       {{#select doc.inProgress}}
-      <option value="false" id="notinProgress" key="false" class="edit-default">Not In Progress</option>
-      <option value="true" id="inProgress" key="true" class="edit-default">In Progress</option>
+      <option value="false" id="notinProgress" key="false" class="select-item">Not In Progress</option>
+      <option value="true" id="inProgress" key="true" class="select-item">In Progress</option>
       {{/select}}
     </select>
   </div>

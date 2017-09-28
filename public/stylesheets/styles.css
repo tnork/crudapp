@@ -154,6 +154,12 @@ input, textarea {
   height: 35% !important;
 }
 
+input.break {
+    word-wrap: break-word;
+    word-break: break-all;
+    height: 80px;
+}
+
 .jumbo-button-wrapper {
   width:100%;
   height:400px;
@@ -226,8 +232,27 @@ nav h1 {
    font-size: 13px !important;
 }
 
+.table-responsive, .input {
+  /* Warning: Needed for oldIE support, but words are broken up letter-by-letter */
+   -ms-word-break: break-all;
+       word-break: break-all;
+
+       /* Non standard for webkit */
+       word-break: break-word;
+
+  -webkit-hyphens: auto;
+     -moz-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+}
+
 .panel .hover-em {
   color: #fff !important;
+}
+
+.panel {
+  word-wrap: break-word !important;
+  word-break: break-all !important;
 }
 
 .panel-default {
@@ -269,6 +294,10 @@ select {
    padding: 4px !important;
    font-size: 10px !important;
    font-weight: 475 !important;
+}
+
+.select-item {
+  font-size: 13px !important;
 }
 
 span, .badge {

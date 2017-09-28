@@ -11,7 +11,6 @@ const todos = require('../models/todos');
 const Todos = require('mongoose').model('Todos');
 const todoGroup = require('../models/todoGroup');
 const thisGroup = require('mongoose').model('thisGroup');
-const moment = require('moment');
 
 // View all
 router.get('/', (req, res) => {
@@ -173,31 +172,17 @@ function lookupTitle(id) {
 }
 
 function displayTime() {
-  // var moment = new Date().toTimeString();
-  // return moment;
   return new Date().toLocaleTimeString({timeZone: 'America/Los_Angeles' });
-  // if (nowTime > '12:00:00') {
-  //   nowTime.slice(nowTime.length, -7);
-  //   nowTime += ' PM PST';
-  //   return nowTime;
-  // } else {
-  //   nowTime.slice(nowTime.length, -7);
-  //   // console.log('Time1 :' + nowTime);
-  //   nowTime += ' AM PST';
-  //   // console.log('Time2 :' + nowTime)
-  //   return nowTime;
-  // }
 }
 
 function AMDecider() {
-    var boolTime = new Date().toLocaleTimeString({ timeZoneName: 'short', hour12: false, timeZone: 'America/Los_Angeles' });
-    if (boolTime.indexOf('AM' !== -1)) {
-      // console.log('Decided time was AM');
-      return true;
-    } else {
-      // console.log('Updated time was PM');
-      return false;
-    }
+  var amString = 'AM';
+  var pmString = 'PM';
+
+  var boolTime = new Date().toLocaleTimeString({timeZone: 'America/Los_Angeles' });
+  var isAM = boolTime.includes(amString);
+  var isPM = boolTime.includes(pmString);
+  return isAM;
 }
 
 function todaysDate() {
