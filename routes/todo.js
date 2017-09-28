@@ -149,7 +149,7 @@ router.get('/delete/:id', (req, res, next) => {
 
 // Get contact form
 router.get('/contact/form', (req, res, next) => {
-  res.render('contactForm', {title: "Contact Todo Depot :"});
+  res.render('contactForm', {title: "Contact Todo Depot :", siteKey: keys.recaptchaSiteKey});
 });
 
 // Email contact message
