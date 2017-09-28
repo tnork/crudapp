@@ -152,6 +152,7 @@ router.get('/contact/form', (req, res, next) => {
   res.render('contactForm', {title: "Contact Todo Depot :"});
 });
 
+// Email contact message
 router.post('/contact/form/submit', (req, res, next) => {
 
 let transporter = nodemailer.createTransport({
