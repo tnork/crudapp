@@ -155,7 +155,7 @@ router.get('/contact/form', (req, res, next) => {
 // Email contact message
 router.post('/contact/form/submit', (req, res, next) => {
 
-let transporter = nodemailer.createTransport({
+var transporter = nodemailer.createTransport({
 		service: 'Gmail',
 		auth: {
 			user: keys.emailUser,
@@ -163,7 +163,7 @@ let transporter = nodemailer.createTransport({
 		}
 	});
 
-	let mailOptions = {
+	var mailOptions = {
 		to: 'tylerdnorkus@gmail.com',
 		subject: 're: Todo Depot Web App',
 		text: 'You have a submission with the following details... Name: '+ req.body.name + 'Email: ' + req.body.email + 'Message: ' + req.body.message,
@@ -173,7 +173,8 @@ let transporter = nodemailer.createTransport({
 	transporter.sendMail(mailOptions, function(error, info){
 		if(error){
 			// console.log(error);
-      res.render('error', {message: 'Sorry. That email message was not submitted through the GSMTP.'});
+      var eMessage = 'Sorry. That email message was not submitted through the GSMTP.' + error;
+      res.render('error', {message: eMessage});
 		} else {
 			// console.log('Message Sent: ' + info.response);
 			res.redirect('/');
