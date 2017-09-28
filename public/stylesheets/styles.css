@@ -200,6 +200,10 @@ input.break {
   color: black !important;
 }
 
+.min-standard {
+  min-width: 260px;
+}
+
 nav {
   margin-bottom: 0px !important;
 }
