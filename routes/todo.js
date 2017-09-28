@@ -164,7 +164,7 @@ var transporter = nodemailer.createTransport({
 	});
 
 	var mailOptions = {
-		to: 'tylerdnorkus@gmail.com',
+		to: keys.emailAddress,
 		subject: 're: Todo Depot Web App',
 		text: 'You have a submission with the following details... Name: '+ req.body.name + 'Email: ' + req.body.email + 'Message: ' + req.body.message,
 		html: '<p>You have a submission with the following details...</p><ul><li>Name: ' + req.body.name + '</li><li>Email: ' + req.body.email + '</li><li>Message: ' + req.body.message + '</li></ul>'
@@ -181,6 +181,11 @@ var transporter = nodemailer.createTransport({
 		}
 	});
 });
+
+// If Google blocks nodemailer:
+// 1. Go to https://www.google.com/settings/security/lesssecureapps and set "Access for less secure apps" to ON.
+// 2. Go to https://support.google.com/accounts/answer/6009563 (Titled: "Password incorrect error"). This page says "There are several reasons why you might see a “Password incorrect” error (aka 534-5.7.14) when signing in to Google using third-party apps. In some cases even if you type your password correctly." This page gives 4 suggestions of things to try.
+// 3. Go to https://g.co/allowaccess from a different device you have previously used to access your Google account and follow the instructions.
 
 // Validation for New Todo (Is already required field in view template anyway), returns true if valid
 function validTodo(todo) {
