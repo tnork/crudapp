@@ -86,6 +86,11 @@ button {
   padding: 16px !important;
 }
 
+.front-format {
+  font-size: 14px;
+  padding: 6px;
+}
+
 gly-btn {
   color: black !important;
 }
@@ -122,7 +127,7 @@ glyphicon-chevron-left:hover {
 .hero-div button {
   padding: 15px 40px;
   border: 0;
-  background: #b20000;
+  background: #b20000 !important;
   color: #fff;
   cursor: pointer;
   position: absolute; top: 50%; left: 50%;
@@ -133,7 +138,7 @@ glyphicon-chevron-left:hover {
 }
 
 .hero-div button:hover{
-  background: #c00;
+  background: #d9534f !important;
 }
 
 .index-content {
@@ -265,12 +270,13 @@ nav h1 {
 
 .panel-heading a:hover {
   color: white !important;
-  background-color: #2d6da4 !important;
+  background-color: #40a4f9 !important;
   font-size: 15px;
 }
 
 .panel-body span:hover {
-  background-color: #CC0000 !important;
+  /*background-color: #CC0000 !important;*/
+  background-color: #ff4444 !important;
   font-size: 12px;
 }
 
@@ -298,6 +304,10 @@ select {
 
 .select-item {
   font-size: 13px !important;
+}
+
+.shadow {
+  box-shadow: 0 0 10px 2px #ccc !important;
 }
 
 span, .badge {
@@ -349,7 +359,9 @@ textarea {
   margin-top: 2px !important;
 }
 
-
+.top-pad {
+  padding-top: 8px;
+}
 
 /*!
  * Material Design for Bootstrap 4
