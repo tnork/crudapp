@@ -63,6 +63,8 @@
        .then((data) => {
         //  console.log(data);
          alert(data.msg);
+       }).then(() => {
+         t1 = window.setTimeout(function(){ window.location = "/"; }, 1000);
        });
      }
    </script>
