@@ -1,4 +1,6 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const request = require('request');
 const router = express.Router();
 const url = require('url');
 const methodOverride = require('method-override');
@@ -152,34 +154,59 @@ router.get('/contact/form', (req, res, next) => {
   res.render('contactForm', {title: "Contact Todo Depot :", siteKey: keys.recaptchaSiteKey});
 });
 
-// Email contact message
-router.post('/contact/form/submit', (req, res, next) => {
+// Recaptcha Verification
+router.post('/message', (req, res, next) => {
+// action="/todos/contact/form/submit" method="post"
 
-var transporter = nodemailer.createTransport({
-		service: 'Gmail',
-		auth: {
-			user: keys.emailUser,
-			pass: keys.emailPass
-		}
-	});
+  if(
+    req.body.captcha === undefined ||
+    req.body.captcha === '' ||
+    req.body.captcha === null
+  ){
+    return res.json({"success": false, "msg":"Please select captcha"});
+  }
 
-	var mailOptions = {
-		to: keys.emailAddress,
-		subject: 're: Todo Depot Web App',
-		text: 'You have a submission with the following details... Name: '+ req.body.name + 'Email: ' + req.body.email + 'Message: ' + req.body.message,
-		html: '<p>You have a submission with the following details...</p><ul><li>Name: ' + req.body.name + '</li><li>Email: ' + req.body.email + '</li><li>Message: ' + req.body.message + '</li></ul>'
-	};
+  // Secret Key
+  const secretKey = keys.recaptchaSecretKey;
 
-	transporter.sendMail(mailOptions, function(error, info){
-		if(error){
-			// console.log(error);
-      var eMessage = 'Sorry. That email message was not submitted through the GSMTP.' + error;
-      res.render('error', {message: eMessage});
-		} else {
-			// console.log('Message Sent: ' + info.response);
-			res.redirect('/');
-		}
-	});
+  // Verify URL
+  const verifyUrl = 'https://google.com/recaptcha/api/siteverify?secret=' + secretKey + '&response=' + req.body.captcha + '&remoteip=' + req.connection.remoteAddress;
+
+  // Make Request To VerifyURL
+  request(verifyUrl, (err, response, body) => {
+    body = JSON.parse(body);
+    console.log(body);
+
+    // If Not Successful
+    if(body.success !== undefined && !body.success){
+      return res.json({"success": false, "msg":"Failed captcha verification. Please try again."});
+    }
+
+    //If Successful
+    var transporter = nodemailer.createTransport({
+    		service: 'Gmail',
+    		auth: {
+    			user: keys.emailUser,
+    			pass: keys.emailPass
+    		}
+    	});
+
+    	var mailOptions = {
+    		to: keys.emailAddress,
+    		subject: 're: Todo Depot Web App',
+    		text: 'You have a submission with the following details... Name: '+ req.body.name + 'Email: ' + req.body.email + 'Message: ' + req.body.message,
+    		html: '<p>You have a submission with the following details...</p><ul><li>Name: ' + req.body.name + '</li><li>Email: ' + req.body.email + '</li><li>Message: ' + req.body.message + '</li></ul>'
+    	};
+
+    	transporter.sendMail(mailOptions, function(error, info){
+    		if(error){
+          var eMessage = 'Sorry. That email message was not submitted through the GSMTP.' + error;
+          res.render('error', {message: eMessage});
+        }
+    	});
+
+    return res.json({"success": true, "msg": 'Your message has been delivered. Thank you for your feedback.'});
+  });
 });
 
 // If Google blocks nodemailer:

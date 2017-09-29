@@ -7,43 +7,59 @@
     </div>
 </nav><br/><br/>
 
-
 <div class="container">
-  <form class="form" action="/todos/contact/form/submit" method="post">
+  <form class="form" id="subscribeForm">
+      <div class="form-group">
+        <label for="username" class="edit-default">Name:</label>
+        <input type="text" class="form-control option-md" name="name" id="name" aria-describedby="nameHelp" placeholder="Please enter your name" required>
+      </div>
 
-    <div class="form-group">
-      <label for="username" class="edit-default">Name:</label>
-      <input type="text" class="form-control option-md" name="name" id="username" aria-describedby="nameHelp" placeholder="Please enter your name" required>
+      <div class="form-group">
+        <label for="newEmail" class="edit-default">Email:</label>
+        <input type="email" class="form-control option-md" name="email" id="email" aria-describedby="emailHelp" placeholder="Please enter your email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="message" class="edit-default">Message:</label><br/><br/>
+        <textarea class="form-control edit-default" id="message" name="message" value="message" rows="7" style="font-size:13px;word-break:break-word;" placeholder="Please enter a message" required></textarea>
+      </div>
+
+    <div class="row recaptcha-style form-group" style="align-items:center;vertical-align:center;">
+      <div class="form-group">
+        <div class="g-recaptcha" data-sitekey="{{siteKey}}"></div>
+      </div>
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      <button type="submit" value="Submit" name="button" class="btn btn-danger btn-lg" style="vertical-align:center;margin-top:3px;margin-bottom:25px;">
+        <img src="/images/email-16.png" class="message-icon" />  &nbsp; Send Your Message
+      </button>
     </div>
-
-    <div class="form-group">
-      <label for="newEmail" class="edit-default">Email:</label>
-      <input type="email" class="form-control option-md" name="email" id="newEmail" aria-describedby="emailHelp" placeholder="Please enter your email" required>
-    </div>
-
-    <div class="form-group">
-      <label for="message" class="edit-default">Message:</label><br/><br/>
-      <textarea class="form-control edit-default" id="message" name="message" value="message" rows="7" style="font-size:13px;word-break:break-word;" placeholder="Please enter a message" required></textarea>
-    </div>
-
-  <div class="row recaptcha-style" style="align-items:center;">
-      <form action="?" method="POST">
-        <div id="html_element"></div>
-        <div class="g-recaptcha" data-sitekey="{{siteKey}}"></div> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-        <button type="submit" value="Submit" name="button" class="btn btn-danger btn-lg" style="vertical-align:center;">
-          <img src="/images/email-16.png" class="message-icon" />  &nbsp; Send Your Message
-        </button>
-    </form>
-  </div>
-
-  <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-      async defer>
-
-  <br/>
-
-  <small id="emailHelp" class="form-text text-muted" style="font-size:10px;">Your privacy is important. Todo Depot will never share your email with anyone else.</small>
-
-</form>
+    <br/>
+    <small id="emailHelp" class="form-text text-muted" style="font-size:10px;">Your privacy is important. Todo Depot will never share your email with anyone else.</small>
+  </form>
 </div>
 
   <br/><br/><br/>
+
+   <script>
+     document.getElementById('subscribeForm').addEventListener('submit', submitForm);
+     function submitForm(e){
+       e.preventDefault();
+       const name = document.querySelector('#name').value;
+       const message = document.querySelector('#message').value;
+       const email = document.querySelector('#email').value;
+       const captcha = document.querySelector('#g-recaptcha-response').value;
+       fetch('/todos/message', {
+         method:'POST',
+         headers: {
+           'Accept': 'application/json, text/plain, */*',
+           'Content-type':'application/json'
+         },
+         body:JSON.stringify({name: name, message: message, email: email, captcha: captcha})
+       })
+       .then((res) => res.json())
+       .then((data) => {
+        //  console.log(data);
+         alert(data.msg);
+       });
+     }
+   </script>
