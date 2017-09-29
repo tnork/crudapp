@@ -245,6 +245,11 @@ input.break {
   margin-bottom: 25px;
 }
 
+.msg-box {
+  font-size: 13px !important;
+  word-break: break-word !important;
+}
+
 nav {
   margin-bottom: 0px !important;
 }
