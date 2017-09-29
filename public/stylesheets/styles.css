@@ -62,6 +62,11 @@ button {
   padding: 30px !important;
 }
 
+.center-all {
+  align-items: center !important;
+  vertical-align: center !important;
+}
+
 .contact-em {
   -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
@@ -232,6 +237,12 @@ input.break {
 
 .min-standard {
   min-width: 260px;
+}
+
+.msg-submit {
+  vertical-align: center;
+  margin: 0px !important;
+  margin-bottom: 25px;
 }
 
 nav {

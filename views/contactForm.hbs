@@ -24,14 +24,17 @@
         <textarea class="form-control edit-default" id="message" name="message" value="message" rows="7" style="font-size:13px;word-break:break-word;" placeholder="Please enter a message" required></textarea>
       </div>
 
-    <div class="row recaptcha-style form-group" style="align-items:center;vertical-align:center;">
-      <div class="form-group">
-        <div class="g-recaptcha" data-sitekey="{{siteKey}}"></div>
+    <div class="row recaptcha-style form-group center-all">
+      <div class="form-group center-all">
+        <div class="g-recaptcha" data-sitekey="{{siteKey}}" style="margin-bottom: 0px;"></div>
       </div>
-      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-      <button type="submit" value="Submit" name="button" class="btn btn-danger btn-lg" style="vertical-align:center;margin-top:3px;margin-bottom:25px;">
-        <img src="/images/email-16.png" class="message-icon" />  &nbsp; Send Your Message
-      </button>
+    </div>
+
+      <div class="form-group center-all">
+        <button type="submit" value="Submit" name="button" class="btn btn-danger btn-lg msg-submit">
+          <img src="/images/email-16.png" class="message-icon" />  &nbsp; Send Your Message
+        </button>
+      </div>
     </div>
     <br/>
     <small id="emailHelp" class="form-text text-muted" style="font-size:10px;">Your privacy is important. Todo Depot will never share your email with anyone else.</small>
