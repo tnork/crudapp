@@ -138,6 +138,10 @@ button {
   padding: 30px !important;
 }
 
+.center-font {
+  text-align: center !important;
+}
+
 .center-all {
   align-items: center !important;
   vertical-align: center !important;
