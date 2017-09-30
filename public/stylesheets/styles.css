@@ -25,6 +25,7 @@ body {
   font: "Oswald", "Lucida Grande", Helvetica, Arial, sans-serif;
   vertical-align: middle;
   text-align: center;
+  padding: 0px !important;
   min-width: 200px;
   }
 
