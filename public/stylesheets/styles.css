@@ -351,6 +351,11 @@ nav h1 {
   margin-left: -40px !important;
 }
 
+.no-margin {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 .no-radius {
   border-radius: 0px !important;
 }
