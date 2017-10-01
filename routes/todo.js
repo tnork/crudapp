@@ -239,7 +239,10 @@ function lookupTitle(id) {
 }
 
 function displayTime() {
-  return new Date().toLocaleTimeString({timeZone: 'America/Los_Angeles' });
+  var timeToReturn = new Date().toLocaleTimeString({timeZone: 'America/Los_Angeles' });
+  alert('Time is ' + timeToReturn);
+  alert('isAM is ' + isAM);
+  return timeToReturn;
 }
 
 function AMDecider() {
@@ -249,7 +252,7 @@ function AMDecider() {
   var boolTime = displayTime();
   var isAM = boolTime.includes(amString);
   var isPM = boolTime.includes(pmString);
-  alert(isAM);
+  alert('isAM is ' + isAM);
   return isAM;
 }
 
