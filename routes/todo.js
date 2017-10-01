@@ -249,6 +249,7 @@ function AMDecider() {
   var boolTime = displayTime();
   var isAM = boolTime.includes(amString);
   var isPM = boolTime.includes(pmString);
+  alert(isAM);
   return isAM;
 }
 
