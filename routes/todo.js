@@ -251,7 +251,7 @@ function AMDecider() {
   var boolTime = displayTime();
   var isAM = boolTime.includes(amString);
   // console.log('isAM is ' + isAM);
-  return !isAM;
+  return isAM;
 }
 
 function todaysDate() {
