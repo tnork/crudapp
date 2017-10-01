@@ -240,7 +240,7 @@ function lookupTitle(id) {
 
 function displayTime() {
   var timeToReturn = new Date().toLocaleTimeString({timeZone: 'America/Los_Angeles' });
-  console.log('Time is ' + timeToReturn);
+  // console.log('Time is ' + timeToReturn);
   return timeToReturn;
 }
 
@@ -250,9 +250,8 @@ function AMDecider() {
 
   var boolTime = displayTime();
   var isAM = boolTime.includes(amString);
-  var isPM = boolTime.includes(pmString);
-  console.log('isAM is ' + isAM);
-  return isAM;
+  // console.log('isAM is ' + isAM);
+  return !isAM;
 }
 
 function todaysDate() {
