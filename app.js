@@ -13,7 +13,7 @@ const hbs = require('hbs');
 require('handlebars-form-helpers').register(hbs.handlebars);
 const session = require('express-session');
 const passport = require('passport');
-const expressValidator = require('express-validator');
+const ExpressValidator = require('express-validator');
 const LocalStrategy = require('passport-local').Strategy;
 const multer = require('multer');
 const upload = multer({dest: './uploads'});
@@ -94,7 +94,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Validator
-app.use(expressValidator({
+app.use(ExpressValidator({
   errorFormatter: function(param, msg, value) {
       var namespace = param.split('.')
       , root    = namespace.shift()
