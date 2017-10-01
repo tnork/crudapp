@@ -1,20 +1,22 @@
 const express = require('express');
 const router = express.Router();
-const uuid = require('uuid');
-const uuidv4 = require('uuid/v4');
 
-const mongoose = require('mongoose');
-
-  /* GET Users pages. */
-router.get('/', (req, res) => {
-  mongoose.model('Users').find((err, users) =>{
-    if(!err){
-    res.send(users);
-  } else {
-    res.send(err);
-  }
-  });
+/* GET users listing. */
+router.get('/', function(req, res, next) {
+  res.send('respond with a resource');
 });
+
+router.get('/register', function(req, res, next) {
+  res.render('register',{title:'Register'});
+});
+
+router.get('/login', function(req, res, next) {
+  res.render('login', {title:'Login'});
+});
+
+module.exports = router;
+
+
 
 // router.get('/:userId', function(req, res, next) {
 //   mongoose.model('Users').find({userId: req.params.userId}, function(err, todos) {
@@ -28,5 +30,3 @@ router.get('/', (req, res) => {
 //   }
 //   });
 // });
-
-module.exports = router;

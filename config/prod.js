@@ -5,5 +5,6 @@ module.exports = {
   emailPass: process.env.EMAIL_PASS,
   recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY,
   recaptchaSecretKey: process.env.RECAPTCHA_SECRET_KEY,
-  emailAddress: process.env.EMAIL_ADDRESS
+  emailAddress: process.env.EMAIL_ADDRESS,
+  secret: process.env.SECRET
 };

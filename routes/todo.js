@@ -246,7 +246,7 @@ function AMDecider() {
   var amString = 'AM';
   var pmString = 'PM';
 
-  var boolTime = new Date().toLocaleTimeString({timeZone: 'America/Los_Angeles' });
+  var boolTime = displayTime();
   var isAM = boolTime.includes(amString);
   var isPM = boolTime.includes(pmString);
   return isAM;
