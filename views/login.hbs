@@ -1,0 +1,27 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header-double">
+      <a href="/todos"><button type="button" class="btn navbar-btn pull-left top-btn">
+        <span class="glyphicon glyphicon-chevron-left remove" style="color:black;"></span>
+      </button></a>
+      <h1 class="nowrap title"> &nbsp; &nbsp; {{title}}</h1>
+    </div>
+</nav><br/><br/>
+
+<form class="form" action="/users/login" method="post" style="margin-right:5px;">
+
+ <div class="form-group">
+   <label for="usernameDescription" class="edit-default">Username:</label><br/><br/>
+   <input type="text" class="form-control option-md" name="username" id="username" placeholder="Enter your username" required>
+ </div>
+
+ <div class="form-group">
+   <label for="password1Description" class="edit-default">Password:</label><br/><br/>
+   <input type="password" class="form-control option-md" name="password1" id="password1" placeholder="Enter your password" required>
+ </div>
+
+  <button type="submit" name="button" name="submit" value="Login" class="btn btn-primary btn-lg">
+  <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>  &nbsp; Login &nbsp;
+  </button></a>
+</form>
+
+<br/><br/><br/>
