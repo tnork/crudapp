@@ -15,6 +15,7 @@ const session = require('express-session');
 const passport = require('passport');
 const ExpressValidator = require('express-validator');
 const LocalStrategy = require('passport-local').Strategy;
+const bcrypt = require('bcryptjs');
 const multer = require('multer');
 const upload = multer({dest: './uploads'});
 const flash = require('connect-flash');

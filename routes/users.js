@@ -4,20 +4,67 @@ const multer = require('multer');
 const upload = multer({dest: './uploads'});
 const mongoose = require('mongoose')
   , Schema = mongoose.Schema, ObjectId = Schema.ObjectId;
-const User = require('../models/users');
-const Users = require('mongoose').model('Users');
+const Users = require('../models/users');
+const User = require('mongoose').model('User');
+const session = require('express-session');
+const passport = require('passport');
+const ExpressValidator = require('express-validator');
+const flash = require('connect-flash');
+const LocalStrategy = require('passport-local').Strategy;
+const bcrypt = require('bcryptjs');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.get('/register', function(req, res, next) {
-  res.render('register', {title: 'Register'});
-});
-
 router.get('/login', function(req, res, next) {
   res.render('login', {title: 'Login'});
+});
+
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.getUserById(id, function(err, user) {
+    done(err, user);
+  });
+});
+
+passport.use(new LocalStrategy(function(username, password, done){
+  User.getUserByUsername(username, function(err, user){
+    if(err) throw err;
+    if(!user){
+      console.log('Unknown user');
+      return done(null, false, {message: 'Unknown User'});
+    }
+
+    User.comparePassword(password, user.password, function(err, isMatch){
+      if(err) return done(err);
+      if(isMatch){
+        console.log('Passwords match');
+
+        return done(null, user);
+      } else {
+        console.log('Passwords don\'t match');
+
+        return done(null, false, {message:'Invalid Password'});
+      }
+    });
+  });
+}));
+
+router.post('/login',
+  passport.authenticate('local',{failureRedirect:'/users/login', failureFlash: 'Invalid username or password'}),
+  function(req, res) {
+    console.log(req.body);
+   req.flash('success', 'You are now logged in');
+   res.redirect('/todos');
+});
+
+router.get('/register', function(req, res, next) {
+  res.render('register', {title: 'Register'});
 });
 
 router.post('/register', upload.single('profile'), function(req, res, next) {
@@ -50,7 +97,7 @@ router.post('/register', upload.single('profile'), function(req, res, next) {
     res.render('register', {errors: errors});
   } else {
     // console.log('No errors' + 'pofileIMG =' + profileIMG);
-    var newUser = new Users({
+    var newUser = new User({
       username: username,
       password: password1,
       email: email,
@@ -71,7 +118,13 @@ router.post('/register', upload.single('profile'), function(req, res, next) {
 });
 
 function createUser(newUser, callback) {
-  newUser.save(callback);
+  bcrypt.genSalt(10, function(err, salt){
+    bcrypt.hash(newUser.password, salt, function(err, hash){
+      //store hash in db
+      newUser.password = hash;
+      newUser.save(callback);
+    });
+  });
 };
 
   // console.log(req.file);

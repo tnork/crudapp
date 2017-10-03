@@ -1,33 +1,49 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const bcrypt = require('bcryptjs');
+const db = require('../config/db');
 
-const usersSchema = mongoose.Schema({
-    username: {
-      type: String,
-      index: true
-    },
-    password: String,
-    email:  String,
-    name: String,
-    profileImage: String
+// User Schema
+const UserSchema = mongoose.Schema({
+	username: {
+		type: String,
+		index: true
+	},
+	password: {
+		type: String
+	},
+	email: {
+		type: String
+	},
+	name: {
+		type: String
+	},
+	profileImage:{
+		type: String
+	}
 });
 
-const Users = module.exports = mongoose.model('Users', usersSchema);
+const User = module.exports = mongoose.model('User', UserSchema);
 
-  // var tyler = new Users({
-  //   name: 'Tyler Norkus',
-  //   title:  'First Task',
-  //   priority: 1,
-  //   description: 'Git R Done',
-  //   done: false,
-  //   date: Date.now(),
-  //   todoId: 2
-  // });
+module.exports.getUserById = function(id, callback){
+	User.findById(id, callback);
+}
 
-  // tyler.save(function(err) {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     console.log('Woof');
-  //   }
-  // });
+module.exports.getUserByUsername = function(username, callback){
+	var query = {username: username};
+	User.findOne(query, callback);
+}
+
+module.exports.comparePassword = function(candidatePassword, hash, callback){
+	bcrypt.compare(candidatePassword, hash, function(err, isMatch) {
+    	callback(null, isMatch);
+	});
+}
+
+module.exports.createUser = function(newUser, callback){
+	bcrypt.genSalt(10, function(err, salt) {
+    	bcrypt.hash(newUser.password, salt, function(err, hash) {
+   			newUser.password = hash;
+   			newUser.save(callback);
+    	});
+	});
+}
