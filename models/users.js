@@ -1,17 +1,18 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-var usersSchema = mongoose.Schema({
+const usersSchema = mongoose.Schema({
+    username: {
+      type: String,
+      index: true
+    },
+    password: String,
+    email:  String,
     name: String,
-    title:  String,
-    priority: Number,
-    description: String,
-    done: Boolean,
-    date: Date,
-    todoId: Number
+    profileImage: String
 });
 
-  var Users = mongoose.model('Users', usersSchema);
+const Users = module.exports = mongoose.model('Users', usersSchema);
 
   // var tyler = new Users({
   //   name: 'Tyler Norkus',

@@ -7,6 +7,10 @@
     </div>
 </nav><br/><br/>
 
+  {{#each errors}}
+    <div class="alert alert-danger edit-default">{{msg}}</div>
+  {{/each}}
+
 <form class="form" action="/users/register" method="post" style="margin-right:5px;" enctype="multipart/form-data" >
   <div class="form-group">
     <label for="nameDescription" class="edit-default">Name:</label><br/><br/>

@@ -4,20 +4,20 @@ const db = require('../config/db');
 
 const Schema = mongoose.Schema;
 
-var todoGroupSchema = mongoose.Schema({
+const todoGroupSchema = mongoose.Schema({
   title:  String,
   notes: String,
   todosArray: [],
   num: Number
 });
 
-var allGroupSchema = mongoose.Schema({
+const allGroupSchema = mongoose.Schema({
   groupArray: [],
   num: Number
 });
 
-var oneGroup =  mongoose.model('oneGroup', allGroupSchema);
-var thisGroup =  mongoose.model('thisGroup', todoGroupSchema);
+const oneGroup =  mongoose.model('oneGroup', allGroupSchema);
+const thisGroup =  mongoose.model('thisGroup', todoGroupSchema);
 
 let allGroups = new oneGroup({
   groupArray: [],
