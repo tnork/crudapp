@@ -20,7 +20,7 @@
 
   <div class="form-group">
     <label for="priority" id="priority" class="edit-default">Select Priority:</label><br/><br/>
-    <select class="form-control edit-default" id="priority" name="priority">
+    <select class="form-control edit-default elevate" id="priority" name="priority">
       {{#select doc.priority}}
       <option value="1" id="1" key="1" class="select-item">Priority 1</option>
       <option value="2" id="2" key="2" class="select-item">Priority 2</option>
@@ -33,7 +33,7 @@
 
   <div class="form-group">
     <label for="inProgress" id="inProgress" class="edit-default">In Progress:</label><br/><br/>
-    <select class="form-control edit-default" rows="2" id="inProgress" name="inProgress">
+    <select class="form-control edit-default elevate" rows="2" id="inProgress" name="inProgress">
       {{#select doc.inProgress}}
       <option value="false" id="notinProgress" key="false" class="option-md" class="select-item">Not In Progress</option>
       <option value="true" id="inProgress" key="true" class="option-md" class="select-item">In Progress</option>

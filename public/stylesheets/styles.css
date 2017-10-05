@@ -179,6 +179,10 @@ button {
   font-size: 13px !important;
 }
 
+.elevate {
+  height: 30px !important;
+}
+
 .footer-content {
   font-size: 12px;
 }
