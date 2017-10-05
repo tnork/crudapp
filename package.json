@@ -8,7 +8,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "bcrypt-nodejs": "*",
+    "bcrypt": "*",
     "body-parser": "*",
     "connect-flash": "*",
     "cookie-parser": "*",
