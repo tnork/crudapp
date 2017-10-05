@@ -16,6 +16,7 @@
     "datejs": "*",
     "debug": "*",
     "express": "*",
+    "express-messages": "*",
     "express-session": "*",
     "handlebars-form-helpers": "*",
     "hbs": "*",
