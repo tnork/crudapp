@@ -386,6 +386,10 @@ nav h1 {
    font-size: 13px !important;
 }
 
+.right-offset {
+  margin-right: 32px !important;
+}
+
 .table-responsive, .input {
   /* Warning: Needed for oldIE support, but words are broken up letter-by-letter */
    -ms-word-break: break-all;
