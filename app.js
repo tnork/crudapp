@@ -31,7 +31,6 @@ fs.readdirSync(models_path).forEach(function (file) {
 
 // Routes
 const index = require('./routes/index');
-const users = require('./routes/users');
 const todo = require('./routes/todo');
 const groups = require('./routes/groups');
 
@@ -74,7 +73,6 @@ app.use(function (req, res, next) {
 
 // Route Mounts
 app.use('/', index);
-app.use('/users', users);
 app.use('/groups', todo);
 app.use('/todos', todo);
 

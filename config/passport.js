@@ -16,6 +16,7 @@ module.exports = function(passport) {
   passport.use('local-signup', new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password',
+    session: true,
     passReqToCallback: true
   },
   function(req, email, password, done) {

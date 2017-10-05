@@ -1,7 +1,8 @@
 const express = require('express');
+const passport = require('passport');
+const router = express.Router();
 const bodyParser = require('body-parser');
 const request = require('request');
-const router = express.Router();
 const url = require('url');
 const methodOverride = require('method-override');
 const dateFormat = require('dateformat');
@@ -18,7 +19,7 @@ const thisGroup = require('mongoose').model('thisGroup');
 
 // View all
 
-router.get('/', (req, res) => {
+router.get('/', isLoggedIn, (req, res) => {
   mongoose.model('Todos').find(function(err, todos) {
     if(!err){
     res.render('all', {title: "All Todos :", todos: todos.reverse()});
@@ -29,7 +30,7 @@ router.get('/', (req, res) => {
 });
 
 // View all
-router.get('/compressedtodos', (req, res) => {
+router.get('/compressedtodos', isLoggedIn, (req, res) => {
   mongoose.model('Todos').find(function(err, todos) {
     if(!err){
     res.render('compressedtodos', {title: "Quick View :", todos: todos.reverse(), timing: displayTime(), date: todaysDate()});
@@ -40,12 +41,12 @@ router.get('/compressedtodos', (req, res) => {
 });
 
 // New View
-router.get('/new', (req, res) => {
+router.get('/new', isLoggedIn, (req, res) => {
   res.render('new', {title: "New Todo :"});
 });
 
 // Groups Main
-router.get('/groups', (req, res) => {
+router.get('/groups', isLoggedIn,  (req, res) => {
   thisGroup.find(function(err, groups) {
     if(!err){
     res.render('groupsMain', {title: "All Groups :", groups: groups.reverse()});
@@ -56,7 +57,7 @@ router.get('/groups', (req, res) => {
 });
 
 // View one
-router.get('/:id', (req, res) => {
+router.get('/:id', isLoggedIn, (req, res) => {
   let id = req.params.id;
   if(typeof id !='undefined') {
 
@@ -68,7 +69,7 @@ router.get('/:id', (req, res) => {
 } });
 
 // Create New Todo (Mongoose doesn't use arrow functions)
-router.post('/', function(req, res, next) {
+router.post('/', isLoggedIn, function(req, res, next) {
   if (req.body.inProgress === 'null') {
     req.body.inProgress = false;
   }
@@ -95,7 +96,7 @@ router.post('/', function(req, res, next) {
 }});
 
 // Update
-router.post('/update/:id', (req, res, next) => {
+router.post('/update/:id', isLoggedIn, (req, res, next) => {
   var id = req.params.id;
   console.log(req.body.description);
   Todos.findOneAndUpdate({
@@ -122,7 +123,7 @@ router.post('/update/:id', (req, res, next) => {
   });
 
 // Edit
-router.get('/edit/:id', (req, res, next) => {
+router.get('/edit/:id', isLoggedIn, (req, res, next) => {
   let id = req.params.id;
   if(typeof id !='undefined') {
 
@@ -134,7 +135,7 @@ router.get('/edit/:id', (req, res, next) => {
 } });
 
 // Delete
-router.get('/delete/:id', (req, res, next) => {
+router.get('/delete/:id', isLoggedIn, (req, res, next) => {
   let id = req.params.id;
   if(typeof id !='undefined') {
 
@@ -286,3 +287,9 @@ function dateConvert(dateobj,format){
 }
 
 module.exports = router;
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated())
+      return next();
+  res.redirect('/login');
+}
