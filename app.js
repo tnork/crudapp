@@ -15,7 +15,6 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const flash = require('connect-flash');
 const session = require('express-session');
-const ExpressValidator = require('express-validator');
 const multer = require('multer');
 const upload = multer({dest: './uploads'});
 const keys = require('./config/keys');
@@ -65,24 +64,6 @@ app.use(flash());
 
 // Passport
 require('./config/passport')(passport);
-
-// Validator
-app.use(ExpressValidator({
-  errorFormatter: function(param, msg, value) {
-      var namespace = param.split('.')
-      , root    = namespace.shift()
-      , formParam = root;
-
-    while(namespace.length) {
-      formParam += '[' + namespace.shift() + ']';
-    }
-    return {
-      param : formParam,
-      msg   : msg,
-      value : value
-    };
-  }
-}));
 
 // Connect-Flash
 app.use(require('connect-flash')());
