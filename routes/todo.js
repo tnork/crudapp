@@ -153,7 +153,7 @@ router.get('/delete/:id', isLoggedIn, (req, res, next) => {
 
 // Get contact form
 router.get('/contact/form', (req, res, next) => {
-  res.render('contactForm', {title: "Contact Todo Depot :", siteKey: keys.recaptchaSiteKey});
+  res.render('contactForm', {title: "Contact Us", siteKey: keys.recaptchaSiteKey});
 });
 
 // Recaptcha Verification
