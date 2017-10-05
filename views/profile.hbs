@@ -1,0 +1,41 @@
+<div class="min-standard">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header">
+      <a href="/todos"><button type="button" class="btn navbar-btn pull-left top-btn">
+      <span class="glyphicon glyphicon-chevron-right remove" style="color:black;"></span>
+      </button></a>
+    </div>
+</nav>
+
+  <div class="col-sm-8 col-sm-offset-2">
+    <div class="text-center">
+
+      {{#if message}}
+        <div class="alert alert-danger edit-default">{{message}}</div>
+      {{/if}}
+
+      <hr>
+      <div class="jumbotron">
+        {{#if user.local.email}}
+          <h1>Profile</h1><br/>
+          <img src="https://avatars.io/static/default_128.jpg" class="img-circle"><br/><br/>
+          <strong>Email</strong>: {{user.local.email}}<br>
+          <strong>User ID</strong>: {{user._id}}<br>
+          <strong>Date Joined</strong>: {{user.local.dateJoin}}<br>
+          <br/>
+        {{/if}}
+
+        <figure>
+          <a href="/todos"><button type="button" class="btn btn-info btn-lg">
+          <div class="front-format"><span class="glyphicon glyphicon-list-alt top-pad" aria-hidden="true"></span> &nbsp; <div style="padding:4px;">See Your Todos!</div>
+          </button></a>
+        </figure>
+      </div>
+
+    <br/><br/>
+    <a href="/"><button class="btn btn-danger btn-lg">
+      <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>  &nbsp; Sign Out
+    </button></a>
+
+    </div>
+  </div>

@@ -11,15 +11,13 @@ const uuidv4 = require('uuid/v4');
 const methodOverride = require('method-override');
 const hbs = require('hbs');
 require('handlebars-form-helpers').register(hbs.handlebars);
-const session = require('express-session');
 const passport = require('passport');
-const ExpressValidator = require('express-validator');
 const LocalStrategy = require('passport-local').Strategy;
-const bcrypt = require('bcryptjs');
+const flash = require('connect-flash');
+const session = require('express-session');
+const ExpressValidator = require('express-validator');
 const multer = require('multer');
 const upload = multer({dest: './uploads'});
-const flash = require('connect-flash');
-const mongo = require('mongodb');
 const keys = require('./config/keys');
 const mongoose = require('mongoose')
   , Schema = mongoose.Schema, ObjectId = Schema.ObjectId;
@@ -50,30 +48,6 @@ hbs.registerHelper('select', function(selected, options) {
     new RegExp(' value=\"' + selected + '\"'),
     '$& selected="selected"');
 });
-
-// Handlebars.registerHelper('iff', function(a, operator, b, opts) {
-//     var bool = false;
-//     switch(operator) {
-//        case '==':
-//            bool = a == b;
-//            break;
-//        case '>':
-//            bool = a > b;
-//            break;
-//        case '<':
-//            bool = a < b;
-//            break;
-//        default:
-//            throw "Unknown operator " + operator;
-//     }
-//
-//     if (bool) {
-//         return opts.fn(this);
-//     } else {
-//         return opts.inverse(this);
-//     }
-// });
-
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -84,15 +58,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 
 // Handle Sessions
-app.use(session({
-  secret: keys.secret,
-  saveUninitialized: true,
-  resave: true
-}));
-
-// Passport
+app.use(session({ secret: keys.secret }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
+
+// Passport
+require('./config/passport')(passport);
 
 // Validator
 app.use(ExpressValidator({

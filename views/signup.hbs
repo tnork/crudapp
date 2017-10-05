@@ -1,0 +1,41 @@
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+       <div class="navbar-header-double">
+         <a href="/login"><button type="button" class="btn navbar-btn pull-left top-btn">
+           <span class="glyphicon glyphicon-chevron-left remove" style="color:black;"></span>
+         </button></a>
+         <h1 class="nowrap title"> &nbsp; &nbsp; {{title}}</h1>
+       </div>
+   </nav><br/><br/>
+
+   <div class="row col-12 col-xs-12 col-md-12 col-xl-12 col-lg-12 back-and-forth">
+      <a href="/login" class="nowrap btn-hidden" style="color:#2970e5;">Already Have An Account? Log In</a>
+   </div>
+
+      {{#if message}}
+         <div class="alert alert-danger edit-default">{{message}}</div>
+      {{/if}}
+
+       <div class="col-sm-8 col-sm-offset-2">
+          <div class="jumbotron text-center">
+
+       <form action="/signup" method="post" class="form top-offset">
+
+          <h1><span class="right-adjust"></span>Sign Up</h1><br/><br/>
+
+         <div class="form-group neg-margin">
+             <label class="edit-default">Email :</label>
+             <input type="email" class="form-control option-md" name="email" required>
+         </div>
+
+         <div class="form-group"  style="margin-bottom:20px;">
+           <label class="edit-default">Password :</label>
+           <input type="password" class="form-control option-md" name="password" required />
+         </div>
+         <div class="form-group center-all">
+           <button type="submit" value="Submit" class="btn btn-success btn-lg msg-submit">
+             <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span> &nbsp; Create Your Account
+           </button>
+         </div>
+
+      </div>
+  </div>

@@ -17,6 +17,7 @@ const todoGroup = require('../models/todoGroup');
 const thisGroup = require('mongoose').model('thisGroup');
 
 // View all
+
 router.get('/', (req, res) => {
   mongoose.model('Todos').find(function(err, todos) {
     if(!err){

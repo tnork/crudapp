@@ -1,27 +1,45 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-header-double">
-      <a href="/todos"><button type="button" class="btn navbar-btn pull-left top-btn">
+      <a href="/"><button type="button" class="btn navbar-btn pull-left top-btn">
         <span class="glyphicon glyphicon-chevron-left remove" style="color:black;"></span>
       </button></a>
       <h1 class="nowrap title"> &nbsp; &nbsp; {{title}}</h1>
     </div>
 </nav><br/><br/>
 
-<form class="form" action="/users/login" method="post" style="margin-right:5px;">
+    <div class="row col-12 col-xs-12 col-md-12 col-xl-12 col-lg-12 back-and-forth">
+      <a href="/signup" class="nowrap btn-hidden" style="color:#2970e5;">Don't Have An Account? Sign Up</a>
+    </div>
 
- <div class="form-group">
-   <label for="usernameDescription" class="edit-default">Username:</label><br/><br/>
-   <input type="text" class="form-control option-md" name="username" id="username" placeholder="Enter your username" required>
- </div>
+        {{#if message}}
+          <div class="alert alert-danger edit-default">{{message}}</div>
+        {{/if}}
 
- <div class="form-group">
-   <label for="password1Description" class="edit-default">Password:</label><br/><br/>
-   <input type="password" class="form-control option-md" name="password1" id="password1" placeholder="Enter your password" required>
- </div>
+    <div class="col-sm-8 col-sm-offset-2">
+      <div class="jumbotron text-center">
 
-  <button type="submit" name="button" name="submit" value="Login" class="btn btn-primary btn-lg">
-  <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>  &nbsp; Login &nbsp;
-  </button></a>
-</form>
+        <form action="/login" method="post" class="form top-offset">
 
-<br/><br/><br/>
+           <h1><span class="right-adjust"></span>Login</h1><br/><br/>
+
+          <div class="form-group neg-margin">
+              <label class="edit-default">Email :</label>
+              <input type="email" class="form-control option-md" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label class="edit-default">Password :</label>
+            <input type="password" class="form-control option-md" name="password" required />
+          </div>
+
+          <div class="form-group center-all">
+            <button type="submit" value="Submit" class="btn btn-success btn-lg msg-submit">
+              <span class="glyphicon glyphicon-user" aria-hidden="true"></span> &nbsp; Login
+            </button>
+          </div>
+
+      <small id="loginHelp" class="form-text" style="font-size:10px;">If you forgot your password, please <a href="todos/contact/form">contact us.</a></small>
+
+      </form>
+    </div>
+  </div>
