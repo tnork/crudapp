@@ -22,7 +22,7 @@ const thisGroup = require('mongoose').model('thisGroup');
 router.get('/', isLoggedIn, (req, res) => {
   mongoose.model('Todos').find(function(err, todos) {
     if(!err){
-    res.render('all', {title: "All Todos :", todos: todos.reverse()});
+    res.render('all', {title: "All Todos", todos: todos.reverse()});
   } else {
     res.send(err);
   }
@@ -33,7 +33,7 @@ router.get('/', isLoggedIn, (req, res) => {
 router.get('/compressedtodos', isLoggedIn, (req, res) => {
   mongoose.model('Todos').find(function(err, todos) {
     if(!err){
-    res.render('compressedtodos', {title: "Quick View :", todos: todos.reverse(), timing: displayTime(), date: todaysDate()});
+    res.render('compressedtodos', {title: "Quick View", todos: todos.reverse(), timing: displayTime(), date: todaysDate()});
   } else {
     res.send(err);
   }
@@ -42,14 +42,14 @@ router.get('/compressedtodos', isLoggedIn, (req, res) => {
 
 // New View
 router.get('/new', isLoggedIn, (req, res) => {
-  res.render('new', {title: "New Todo :"});
+  res.render('new', {title: "New Todo"});
 });
 
 // Groups Main
 router.get('/groups', isLoggedIn,  (req, res) => {
   thisGroup.find(function(err, groups) {
     if(!err){
-    res.render('groupsMain', {title: "All Groups :", groups: groups.reverse()});
+    res.render('groupsMain', {title: "All Groups", groups: groups.reverse()});
   } else {
     res.send(err);
   }
@@ -144,7 +144,7 @@ router.get('/delete/:id', isLoggedIn, (req, res, next) => {
     setTimeout(function(){
       mongoose.model('Todos').find(function(err, todos) {
         if(!err){
-          res.render('all', {title: "All Todos :", todos: todos.reverse()});
+          res.render('all', {title: "All Todos", todos: todos.reverse()});
         } else {
           res.send(err);
       }})
