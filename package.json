@@ -5,14 +5,14 @@
   "author": "Tyler Norkus",
   "private": true,
   "scripts": {
-    "start": "node app"
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "bcrypt-nodejs": "*",
     "body-parser": "*",
     "connect-flash": "*",
     "cookie-parser": "*",
-    "dateformat": "^*",
+    "dateformat": "*",
     "datejs": "*",
     "debug": "*",
     "express": "*",
