@@ -293,6 +293,10 @@ input.break {
   text-align: left !important;
 }
 
+.left-strong {
+  padding-left: 42px !important;
+}
+
 .limited {
    margin-right: 18px;
 }
