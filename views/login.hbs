@@ -1,11 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-header-double">
-      <a href="/"><button type="button" class="btn navbar-btn pull-left top-btn">
-        <span class="glyphicon glyphicon-chevron-left remove" style="color:black;"></span>
-      </button></a>
-      <h1 class="nowrap title"> &nbsp; &nbsp; {{title}}</h1>
-    </div>
-</nav><br/><br/>
+<div id="main-nav"></div><br/><br/>
 
     <div class="row col-12 col-xs-12 col-md-12 col-xl-12 col-lg-12 back-and-forth">
       <a href="/signup" class="nowrap btn-hidden" style="color:#2970e5;">Don't Have An Account? Sign Up</a>
@@ -15,7 +8,7 @@
           <div class="alert alert-danger edit-default">{{message}}</div><br/>
         {{/if}}
 
-    <div class="col-sm-8 col-sm-offset-2">
+    <div>
       <div class="jumbotron text-center">
 
         <form action="/login" method="post" class="form top-offset">
@@ -43,3 +36,18 @@
       </form>
     </div>
   </div>
+
+  <div id="back-opt"></div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function navLaunch() {
+  var is_safari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
+                 navigator.userAgent && !navigator.userAgent.match('CriOS');
+  if(!is_safari) {
+    navBar = "<nav class='navbar navbar-inverse navbar-fixed-top'> <div class='navbar-header-double'> <a href='/signup'><button type='button' class='btn navbar-btn pull-left top-btn'> <span class='glyphicon glyphicon-chevron-left remove' style='color:black;'></span> </button></a> <h1 class='nowrap title'> &nbsp; &nbsp; {{title}}</h1> </div> </nav>";
+    document.querySelector('#main-nav').innerHTML = navBar;
+  } else {
+    navBar = "<div class='min-standard'> <nav class='navbar navbar-inverse navbar-fixed-top'> <div class='navbar-header' style='float:center;'> <a href='/signup'><button type='button' class='btn navbar-btn'> <span class='glyphicon glyphicon-chevron-left' style='color:black;margin-right:5px;'></span> </button></a> </div></nav><br/>"
+    document.querySelector('#main-nav').innerHTML = navBar;
+  }});
+  </script>

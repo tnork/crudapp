@@ -1,11 +1,5 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-header-double">
-      <a href="/todos"><button type="button" class="btn btn-default navbar-btn pull-left">
-        <span class="glyphicon glyphicon-chevron-left remove"></span>
-      </button></a>
-      <h1 class="nowrap title"> &nbsp; &nbsp; {{title}}</h1>
-    </div>
-</nav><br/><br/>
+<div id="main-nav"></div><br/>
+
 <br/>
 <h1>{{message}}</h1>
 <h2>{{error.status}}</h2>
@@ -14,3 +8,16 @@
 <h1 style="font-family: Lobster;">Let's go Home:</h1><br/><br/>
 
 <a href="/todos"><img height="200px" src="https://i.pinimg.com/736x/3e/6c/de/3e6cde96da751668680d6b7c119a8793--cute-piggies-belles-images.jpg" alt="Searching Pig" /></a>
+
+<script>
+document.addEventListener('DOMContentLoaded', function navLaunch() {
+var is_safari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
+               navigator.userAgent && !navigator.userAgent.match('CriOS');
+if(!is_safari) {
+  navBar = "<nav class='navbar navbar-inverse navbar-fixed-top'> <div class='navbar-header-double'> <a href='/todos'><button type='button' class='btn navbar-btn pull-left top-btn'> <span class='glyphicon glyphicon-chevron-left remove' style='color:black;'></span> </button></a> <h1 class='nowrap title'> &nbsp; &nbsp; {{title}}</h1> </div> </nav>";
+  document.querySelector('#main-nav').innerHTML = navBar;
+} else {
+  navBar = "<div class='min-standard'> <nav class='navbar navbar-inverse navbar-fixed-top'> <div class='navbar-header' style='float:center;'> <a href='/todos'><button type='button' class='btn navbar-btn'> <span class='glyphicon glyphicon-chevron-left' style='color:black;margin-right:5px;'></span> </button></a> </div></nav><br/>"
+  document.querySelector('#main-nav').innerHTML = navBar;
+}});
+</script>

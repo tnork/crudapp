@@ -1,11 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-header-double">
-      <a href="/"><button type="button" class="btn navbar-btn pull-left top-btn">
-        <span class="glyphicon glyphicon-chevron-left remove" style="color:black;"></span>
-      </button></a>
-      <h1 class="nowrap title"> &nbsp; &nbsp; {{title}}</h1>
-    </div>
-</nav><br/><br/>
+<div id="main-nav"></div><br/>
 
 <div class="container">
   <form class="form" id="subscribeForm">
@@ -24,11 +17,13 @@
         <textarea class="form-control edit-default msg-box" id="message" name="message" value="message" rows="7" placeholder="Please enter a message" required></textarea>
       </div>
 
-    <div class="row recaptcha-style form-group center-all">
+    <div class="container">
+    <div class="row recaptcha-style form-group center-all" id="safari-fix">
       <div class="form-group center-all">
         <div class="g-recaptcha no-margin" data-sitekey="{{siteKey}}"></div>
       </div>
     </div>
+  </div>
 
       <div class="form-group center-all">
         <button type="submit" value="Submit" name="button" class="btn btn-danger btn-lg msg-submit">
@@ -67,4 +62,19 @@
          t1 = window.setTimeout(function(){ window.location = "/"; }, 1000);
        });
      }
+   </script>
+
+   <script>
+   document.addEventListener('DOMContentLoaded', function navLaunch() {
+     var is_safari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
+                    navigator.userAgent && !navigator.userAgent.match('CriOS');
+     if(!is_safari) {
+       navBar = "<nav class='navbar navbar-inverse navbar-fixed-top'> <div class='navbar-header-double'> <a href='/'><button type='button' class='btn navbar-btn pull-left top-btn'> <span class='glyphicon glyphicon-chevron-left remove' style='color:black;'></span> </button></a> <h1 class='nowrap title'> &nbsp; &nbsp; {{title}}</h1> </div> </nav>";
+       document.querySelector('#main-nav').innerHTML = navBar;
+
+     } else {
+       navBar = "<div class='min-standard'> <nav class='navbar navbar-inverse navbar-fixed-top'> <div class='navbar-header' style='float:center;'> <a href='/'><button type='button' class='btn navbar-btn'> <span class='glyphicon glyphicon-chevron-left' style='color:black;margin-right:5px;'></span> </button></a> </div></nav><br/>"
+       document.querySelector('#main-nav').innerHTML = navBar;
+       document.querySelector('#safari-fix').setAttribute("style", "display:-webkit-box;-webkit-box-pack:center;-webkit-box-align:center;");
+     }});
    </script>
