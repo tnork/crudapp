@@ -18,20 +18,19 @@ const todoGroup = require('../models/todoGroup');
 const thisGroup = require('mongoose').model('thisGroup');
 
 // View all
-
 router.get('/', isLoggedIn, (req, res) => {
-  mongoose.model('Todos').find(function(err, todos) {
+  mongoose.model('Todos').find({userID: req.user._id}, (err, todos) => {
     if(!err){
-    res.render('all', {title: "All Todos", todos: todos.reverse()});
-  } else {
-    res.send(err);
-  }
+      res.render('all', {title: "All Todos", todos: todos.reverse()});
+    } else {
+      res.send(err);
+    }
+    });
   });
-});
 
 // View all
 router.get('/compressedtodos', isLoggedIn, (req, res) => {
-  mongoose.model('Todos').find(function(err, todos) {
+  mongoose.model('Todos').find({userID: req.user._id}, (err, todos) => {
     if(!err){
     res.render('compressedtodos', {title: "Quick View", todos: todos.reverse(), timing: displayTime(), date: todaysDate()});
   } else {
@@ -60,13 +59,15 @@ router.get('/groups', isLoggedIn,  (req, res) => {
 router.get('/:id', isLoggedIn, (req, res) => {
   let id = req.params.id;
   if(typeof id !='undefined') {
-
     mongoose.model('Todos').findOne({uuid: id}, (err, doc) => {
-      res.render('one', {title: "Todo Details :", doc});
-    });
-  } else {
-    res.render('error', {message: 'Sorry. That ID is invalid.'});
-} });
+      if(!err) {
+        if(doc.userID != null){
+          if (doc.userID = req.user._id) {
+          res.render('one', {title: "Todo Details :", doc});
+      }}}});
+    } else {
+    res.render('error', {message: 'Sorry. That ID is invalid or you do not have access to this todo.'});
+}});
 
 // Create New Todo (Mongoose doesn't use arrow functions)
 router.post('/', isLoggedIn, function(req, res, next) {
@@ -83,7 +84,8 @@ router.post('/', isLoggedIn, function(req, res, next) {
     inProgress: req.body.inProgress,
     time: displayTime(),
     displayAM: AMDecider(),
-    uuid: uuidv4()
+    uuid: uuidv4(),
+    userID: req.user._id
   });
 
    if(validTodo(addTodo)){
@@ -98,48 +100,58 @@ router.post('/', isLoggedIn, function(req, res, next) {
 // Update
 router.post('/update/:id', isLoggedIn, (req, res, next) => {
   var id = req.params.id;
-  console.log(req.body.description);
-  Todos.findOneAndUpdate({
-      uuid: id
-  }, {
-    title: req.body.title == '' ? lookupTitle(id) : req.body.title,
-    description: req.body.description === '' || req.body.description === null || req.body.description === undefined ? lookupDescription(id) : req.body.description,
-    priority: req.body.priority,
-    done: false,
-    date: todaysDate(),
-    inProgress: req.body.inProgress == 'false' ? false : true,
-    time: displayTime(),
-    displayAM: AMDecider(),
-    uuid: id
-  }, {upsert: true, 'new': true}, function(err, res) {
-  });
 
-  mongoose.model('Todos').find(function(err, todos) {
-    if(!err){
-      res.redirect('/todos');
-    } else {
-        res.send(err);
-    }});
-  });
+  mongoose.model('Todos').find({uuid: id}, function(err, doc) {
+    if (doc.userID = req.user._id) {
+      Todos.findOneAndUpdate({
+          uuid: id
+      }, {
+        title: req.body.title == '' ? lookupTitle(id) : req.body.title,
+        description: req.body.description === '' || req.body.description === null || req.body.description === undefined ? lookupDescription(id) : req.body.description,
+        priority: req.body.priority,
+        done: false,
+        date: todaysDate(),
+        inProgress: req.body.inProgress == 'false' ? false : true,
+        time: displayTime(),
+        displayAM: AMDecider(),
+        uuid: id
+      }, {upsert: true, 'new': true}, function(err, res) {
+      });
+
+      Todos.find(function(err, todos) {
+        if(!err){
+          res.redirect('/todos');
+        } else {
+            res.send(err);
+        }});
+      }
+    });
+});
 
 // Edit
 router.get('/edit/:id', isLoggedIn, (req, res, next) => {
   let id = req.params.id;
   if(typeof id !='undefined') {
-
     mongoose.model('Todos').findOne({uuid: id}, (err, doc) => {
-      res.render('edit', {title: "Edit Todo :", doc});
+      if (doc.userID = req.user._id) {
+        res.render('edit', {title: "Edit Todo :", doc});
+      } else {
+        res.render('error', {message: 'Sorry. That ID is invalid or you do not have access to edit the todo.'});
+      }
     });
-  } else {
-    res.render('error', {message: 'Sorry. That ID is invalid.'});
-} });
+  }
+ });
 
 // Delete
 router.get('/delete/:id', isLoggedIn, (req, res, next) => {
   let id = req.params.id;
   if(typeof id !='undefined') {
-
-    mongoose.model('Todos').find({uuid: id}).remove().exec();
+    mongoose.model('Todos').findOne({uuid: id}, (err, doc) => {
+      if (doc.userID = req.user._id) {
+        mongoose.model('Todos').find({uuid: id}).remove().exec();
+      } else {
+        res.render('error', {message: 'Sorry. That ID is invalid or you do not have access to delete the todo.'});
+      }});
 
     setTimeout(function(){
       mongoose.model('Todos').find(function(err, todos) {

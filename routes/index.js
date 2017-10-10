@@ -3,6 +3,7 @@ const passport = require('passport');
 const router = express.Router();
 const multer = require('multer');
 const upload = multer({dest: './uploads'});
+const util = require('util')
 
 /* GET home page. */
 router.get('/', (req, res) => {
@@ -40,6 +41,8 @@ router.post('/login', passport.authenticate('local-login', {
 }));
 
 function isLoggedIn(req, res, next) {
+  // console.log('Req' + util.inspect(req));
+  // console.log(req.user._id);
   if (req.isAuthenticated())
       return next();
   res.redirect('/signup');

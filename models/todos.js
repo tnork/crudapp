@@ -13,7 +13,8 @@ const todosSchema = mongoose.Schema({
   inProgress: Boolean,
   time: String,
   displayAM: Boolean,
-  uuid: String
+  uuid: String,
+  userID: String
 });
 
 const Todos = mongoose.model('Todos', todosSchema);
