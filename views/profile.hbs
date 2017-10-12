@@ -1,4 +1,4 @@
-<div id="main-nav"></div><br/><br/><br/><br/>
+<div id="main-nav"></div><br/><br/><br/>
 
   <div class="col-sm-8 col-sm-offset-2">
     <div class="text-center">
@@ -10,37 +10,52 @@
       <div class="jumbotron">
         {{#if user.local.email}}
           <h1>Profile</h1><br/>
-          <img src="https://avatars.io/static/default_128.jpg" class="img-circle"><br/><br/>
+          <img src="{{user.local.profileImage}}" class="img-circle" style="width:300px;"><br/><br/>
           <strong>Email</strong>: {{user.local.email}}<br>
           <strong>User ID</strong>: {{user._id}}<br>
           <strong>Date Joined</strong>: {{user.local.dateJoin}}<br>
           <br/>
         {{/if}}
 
-        <figure>
-          <a href="/todos"><button type="button" class="btn btn-success btn-lg">
-          <div class="front-format"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> &nbsp; <div style="padding:4px;">See Your Todos!</div>
-          </button></a>
-        </figure><br/>
+    <figure>
+      <a href="/todos"><button type="button" class="btn btn-success btn-lg">
+      <div class="front-format"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> &nbsp; <div style="padding:4px;margin-top:-10px;">See Your Todos!</div>
+      </button></a>
+    </figure><br/>
+
+    <form class="form" action="/profile/add" method="post" style="margin-right:5px;margin-top:-35px;" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="profilepic" style="font-size:16px;">Upload Profile Pic (Optional):</label>
+        <input type="file" class="form-control" name="mainimage">
       </div>
 
-    <br/><br/>
+
+      <div class="form-group" style="margin-top:-30px;" style="color:#fff;">
+        <button type="submit" name="submit" class="btn-warning btn-lg" style="color:#fff;">
+        <span class="glyphicon glyphicon-upload" aria-hidden="true" style="font-size:14px;" style="color:#fff;">&nbsp; Upload &nbsp;</span>
+        </button></a>
+      </div>
+
+    </form>
+  </div>
+
     <a href="/logout"><button class="btn btn-danger btn-lg">
       <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>  &nbsp; Log Out &nbsp;
-    </button></a>
+    </button></a>  <br/><br/><br/>
 
     </div>
   </div>
+
 
   <script>
   document.addEventListener('DOMContentLoaded', function navLaunch() {
   var is_safari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
                  navigator.userAgent && !navigator.userAgent.match('CriOS');
   if(!is_safari) {
-    navBar = "<nav class='navbar navbar-inverse navbar-fixed-top'> <div class='navbar-header-double'> <a href='/todos'><button type='button' class='btn navbar-btn pull-left top-btn'> <span class='glyphicon glyphicon-chevron-left remove' style='color:black;'></span> </button></a> <h1 class='nowrap title'> &nbsp; &nbsp; {{title}}</h1> </div> </nav>";
+    navBar = "<nav class='navbar navbar-inverse navbar-fixed-top'> <div class='navbar-header-double'> <a href='/todos'><button type='button' class='btn navbar-btn pull-left top-btn'> <span class='glyphicon glyphicon-chevron-right remove' style='color:black;'></span> </button></a> <h1 class='nowrap title'> &nbsp; &nbsp; {{title}}</h1> </div> </nav>";
     document.querySelector('#main-nav').innerHTML = navBar;
   } else {
-    navBar = "<div class='min-standard'> <nav class='navbar navbar-inverse navbar-fixed-top'> <div class='navbar-header' style='float:center;'> <a href='/todos'><button type='button' class='btn navbar-btn'> <span class='glyphicon glyphicon-chevron-left' style='color:black;margin-right:5px;'></span> </button></a> </div></nav><br/>"
+    navBar = "<div class='min-standard'> <nav class='navbar navbar-inverse navbar-fixed-top'> <div class='navbar-header' style='float:center;'> <a href='/todos'><button type='button' class='btn navbar-btn'> <span class='glyphicon glyphicon-chevron-right' style='color:black;margin-right:5px;'></span> </button></a> </div></nav><br/>"
     document.querySelector('#main-nav').innerHTML = navBar;
   }});
   </script>

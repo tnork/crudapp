@@ -17,6 +17,9 @@ const userSchema = mongoose.Schema({
 	},
 	dateJoin:{
 		type: String
+	},
+	profileImage:{
+		type: String
 	}},
 });
 

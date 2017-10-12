@@ -301,7 +301,7 @@ function dateConvert(dateobj,format){
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated())
       return next();
-  res.redirect('/signup');
+  res.redirect('/login');
 }
 
 module.exports = router;

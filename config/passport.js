@@ -31,6 +31,7 @@ module.exports = function(passport) {
           newUser.local.dateJoin = todaysDate();
           newUser.local.email = email;
           newUser.local.password = newUser.generateHash(password);
+          newUser.local.profileImage = "https://avatars.io/static/default_128.jpg";
           newUser.save(function(err) {
             if (err)
               throw err;
