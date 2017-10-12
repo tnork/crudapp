@@ -21,7 +21,7 @@ const thisGroup = require('mongoose').model('thisGroup');
 router.get('/', isLoggedIn, (req, res) => {
   mongoose.model('Todos').find({userID: req.user._id}, (err, todos) => {
     if(!err){
-      res.render('all', {title: "All Todos", todos: todos.reverse()});
+      res.render('all', {title: "All Todos", todos: todos});
     } else {
       res.send(err);
     }
@@ -32,7 +32,7 @@ router.get('/', isLoggedIn, (req, res) => {
 router.get('/compressedtodos', isLoggedIn, (req, res) => {
   mongoose.model('Todos').find({userID: req.user._id}, (err, todos) => {
     if(!err){
-    res.render('compressedtodos', {title: "Quick View", todos: todos.reverse(), timing: displayTime(), date: todaysDate()});
+    res.render('compressedtodos', {title: "Quick View", todos: todos, timing: displayTime(), date: todaysDate()});
   } else {
     res.send(err);
   }
